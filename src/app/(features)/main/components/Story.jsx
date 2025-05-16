@@ -5,11 +5,11 @@ const StoryBar = ({ children }) => (
       colorScheme: "light",
       height: "100px",
       backgroundColor: "rgb(255,255,255)",
-      border: "1px solid rgb(255,255,255)",
+      border: "1px solid rgb(0,255,255)",
       marginBottom: "24px",
       direction: "ltr",
       fontSize: "14px",
-      width: "630px",
+      width: "628px",
     }}
   >
     {children}
