@@ -1,0 +1,65 @@
+:root {
+  scroll-behavior: auto;
+}
+
+.noti-container {
+  width: 396px;
+  height: 738;
+  margin: 0 auto;
+  padding: 16px;
+  background-color: black;
+  position: fixed;
+  color: white;
+  border: 0;
+}
+
+/* 개별 알림 항목 */
+.noti-item {
+  width: 396;
+  height: 40;
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid black;
+}
+
+/* 사용자 프로필 이미지 */
+.noti-profile {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+  flex-direction: row;
+}
+
+.noti-story {
+  width: 44px;
+  height: 44px;
+  border-radius: 15%;
+  object-fit: cover;
+  margin-right: 12px;
+  flex-direction: row;
+}
+
+/* 텍스트 내용 */
+.noti-content {
+  padding-top: 12px;
+  height: 50px;
+  text-align: left;
+  flex-direction: row;
+  font-size: 15px;
+  color: white;
+}
+
+.notification-content .username {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+/* 시간 */
+.noti-time {
+  font-size: 12px;
+  color: #8e8e8e;
+  margin-top: 4px;
+}
