@@ -6,7 +6,7 @@ export default function LoginPage() {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fafafa",
+    backgroundColor: "#fff",
     marginTop: "32px",
   };
 
@@ -82,7 +82,7 @@ export default function LoginPage() {
         <div style={registerTextStyle}>
           <p style={{ fontSize: 14 }}>
             계정이 없으신가요?{" "}
-            <Link href="/register" style={linkStyle}>
+            <Link href="/auth/signup" style={linkStyle}>
               가입하기
             </Link>
           </p>
