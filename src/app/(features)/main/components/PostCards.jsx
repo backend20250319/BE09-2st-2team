@@ -2,8 +2,7 @@
 const PostCard = ({ username, imgUrl, content }) => (
   <div
     style={{
-      border: "1px solid #dbdbdb",
-      borderRadius: "8px",
+      borderBottom: "1px solid #dbdbdb",
       backgroundColor: "#fff",
       marginBottom: "32px",
       fontSize: "14px",

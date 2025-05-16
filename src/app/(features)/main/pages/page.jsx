@@ -1,11 +1,14 @@
 // pages/page.jsx
 import React from "react";
 import Navbar from "../components/NavBar";
-import StoryBar from "../components/Story";
-import { Stories } from "../components/Story";
-import Feed from "../components/Feed";
-import SideBar from "../components/Side";
-import { SideContents } from "../components/Side";
+import StoryBar, { Stories } from "../components/Story";
+import FeedPage, { FeedTray, Feed } from "../components/Feed";
+import SideBar, {
+  SideContents,
+  SideMyProfile,
+  SideRecommend,
+  SideFooter,
+} from "../components/Side";
 import styles from "../styles/MainPage.module.css";
 
 const MainPage = () => {
@@ -19,10 +22,18 @@ const MainPage = () => {
             <StoryBar>
               <Stories></Stories>
             </StoryBar>
-            <Feed />
+            <FeedPage>
+              <FeedTray>
+                <Feed />
+              </FeedTray>
+            </FeedPage>
           </div>
           <SideBar>
-            <SideContents />
+            <SideContents>
+              <SideMyProfile />
+              <SideRecommend />
+              <SideFooter />
+            </SideContents>
           </SideBar>
         </div>
       </div>
