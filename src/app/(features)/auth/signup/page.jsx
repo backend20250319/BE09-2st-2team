@@ -1,42 +1,76 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
-  // 임시 아디 비번
-  const id = "qwerty";
-  const pw = "qwerty";
+  const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
-  const [username, setUsername] = useState("");
+  const isValidPhone = (value) =>
+    /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/.test(value);
+
+  const handleEmailOrPhoneBlur = () => {
+    setFocusEmailOrPhone(false);
+
+    const value = emailOrPhone.trim();
+
+    console.log(value);
+
+    // 숫자, +, - 만 포함되어 있는지 검사해서 전화번호 여부 판단
+    const isPhoneInput = /^[\d+\-]+$/.test(value);
+
+    if (isPhoneInput) {
+      // 휴대폰 번호 검사
+      if (!isValidPhone(value)) {
+        setErrorMessage(
+          "휴대폰 번호가 정확하지 않습니다. 국가 번호를 포함하여 전체 전화번호를 입력해주세요."
+        );
+        return; // 여기서 return 하니까 밑에 setErrorMessage("") 안 호출됨
+      }
+    } else {
+      // 이메일 검사
+      if (!isValidEmail(value)) {
+        setErrorMessage("Enter a valid email address.");
+        return; // 여기서 return 하니까 밑에 setErrorMessage("") 안 호출됨
+      }
+    }
+
+    // 둘 다 통과하면 에러 메시지 초기화
+    setErrorMessage("");
+    return true;
+  };
+
+  const router = useRouter();
+
+  //////////// Signup  ///////////////////////////////////
+  const [emailOrPhone, setEmailOrPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // 비밀번호 표시 여부 상태
+  const [fullName, setFullName] = useState("");
+  const [username, setUsername] = useState("");
+
+  const [showPassword, setShowPassword] = useState(false);
 
   // 포커스 상태 관리 (선택사항, 스타일 좀 더 다이나믹하게)
-  const [focusUsername, setFocusUsername] = useState(false);
+  const [focusEmailOrPhone, setFocusEmailOrPhone] = useState(false);
   const [focusPassword, setFocusPassword] = useState(false);
+  const [focusFullName, setFocusFullName] = useState(false);
+  const [focusUsername, setFocusUsername] = useState(false);
 
   // 에러 메시지 상태 추가
   const [errorMessage, setErrorMessage] = useState("");
 
-  // 로그인 버튼 활성화 조건
-  const isLoginEnabled = username.trim() !== "" && password.trim() !== "";
-
-  const router = useRouter();
+  const isSignupEnabled =
+    emailOrPhone.trim() !== "" &&
+    password.trim() !== "" &&
+    fullName.trim() !== "" &&
+    username.trim() !== "";
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (username === "" || password === "") return;
+    if (!isSignupEnabled) return;
 
-    // 로그인 정보 검증
-    if (username !== id || password !== pw) {
-      setErrorMessage("잘못된 비밀번호입니다. 다시 확인하세요.");
-      return;
-    }
-
-    // 성공 시 에러 메시지 초기화 후 페이지 이동
     setErrorMessage("");
-    router.push("/main/pages");
+    router.push("/auth/login");
   };
   // 플로팅 라벨 스타일 객체
   const floatingLabelStyle = (active) => ({
@@ -61,18 +95,8 @@ export default function LoginForm() {
     backgroundColor: "#fafafa",
     boxSizing: "border-box",
     outline: "none",
+    paddingRight: "36px", // 아이콘 공간 확보
   };
-
-  //////////// Signup  ///////////////////////////////////
-
-  const [emailOrPhone, setEmailOrPhone] = useState("");
-  const [fullName, setFullName] = useState("");
-
-  const isSignupEnabled =
-    emailOrPhone.trim() !== "" &&
-    password.trim() !== "" &&
-    fullName.trim() !== "" &&
-    username.trim() !== "";
 
   const containerStyle = {
     display: "flex",
@@ -152,7 +176,7 @@ export default function LoginForm() {
             margin: "0 auto",
           }}
         >
-          <p style={{ color: "#666", margin: "9px 0", fontWeight: "bold" }}>
+          <p style={{ color: "#737373", margin: "9px 0", fontWeight: "bold" }}>
             친구들의 사진과 동영상을 보려면 가입하
             <br />
             세요.
@@ -167,8 +191,20 @@ export default function LoginForm() {
               backgroundColor: "#0095f6",
               color: "white",
               cursor: "pointer",
+              display: "flex", // flexbox 사용
+              alignItems: "center", // 수직 가운데 정렬
+              justifyContent: "center", // (선택) 가운데 정렬
             }}
           >
+            <img
+              src="/images/auth/facebookicon.png"
+              alt="Facebook 로그인"
+              style={{
+                width: "16px",
+                height: "16px",
+                marginRight: "6px",
+              }}
+            />
             Facebook으로 로그인
           </button>
 
@@ -195,27 +231,64 @@ export default function LoginForm() {
             <hr style={{ flex: 1, borderTop: "1px solid #dbdbdb" }} />
           </div>
 
-          {/* username */}
+          {/* emailOrPhone */}
           <div style={floatingInputStyle}>
             <input
-              id="username"
+              id="emailOrPhone"
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              onFocus={() => setFocusUsername(true)}
-              onBlur={() => setFocusUsername(false)}
+              value={emailOrPhone}
+              onChange={(e) => setEmailOrPhone(e.target.value)}
+              onFocus={() => setFocusEmailOrPhone(true)}
+              onBlur={() => handleEmailOrPhoneBlur()}
               required
-              autoComplete="username"
-              style={inputStyle}
+              autoComplete="emailOrPhone"
+              style={{
+                ...inputStyle,
+                border:
+                  errorMessage !== "" ? "1px solid red" : "1px solid #dbdbdb",
+              }}
               placeholder=" " // placeholder 공백으로 둬야 :placeholder-shown 효과 회피 가능
             />
             <label
-              htmlFor="username"
-              style={floatingLabelStyle(focusUsername || username !== "")}
+              htmlFor="emailOrPhone"
+              style={floatingLabelStyle(
+                focusEmailOrPhone || emailOrPhone !== ""
+              )}
             >
-              전화번호, 사용자 이름 또는 이메일
+              휴대폰 번호 또는 이메일 주소
             </label>
+            {emailOrPhone && (
+              <img
+                src="/images/auth/erroricon.png" // 아이콘 이미지 경로
+                alt="clear"
+                onClick={() => setEmailOrPhone("")}
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  width: "22px",
+                  height: "22px",
+                  cursor: "pointer",
+                  opacity: 0.6,
+                }}
+              />
+            )}
           </div>
+          {errorMessage && (
+            <p
+              style={{
+                color: "#ed4956",
+                fontSize: "12px",
+                marginTop: "4px",
+                marginLeft: "8px",
+                textAlign: "left",
+                width: "100%", // 중요!
+              }}
+            >
+              {errorMessage}
+            </p>
+          )}
 
           {/* password */}
           <div style={floatingInputStyle}>
@@ -262,25 +335,25 @@ export default function LoginForm() {
             )}
           </div>
 
-          {/* username */}
+          {/* fullName */}
           <div style={floatingInputStyle}>
             <input
-              id="username"
+              id="fullName"
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              onFocus={() => setFocusUsername(true)}
-              onBlur={() => setFocusUsername(false)}
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              onFocus={() => setFocusFullName(true)}
+              onBlur={() => setFocusFullName(false)}
               required
-              autoComplete="username"
+              autoComplete="fullName"
               style={inputStyle}
               placeholder=" " // placeholder 공백으로 둬야 :placeholder-shown 효과 회피 가능
             />
             <label
-              htmlFor="username"
-              style={floatingLabelStyle(focusUsername || username !== "")}
+              htmlFor="fullName"
+              style={floatingLabelStyle(focusFullName || fullName !== "")}
             >
-              전화번호, 사용자 이름 또는 이메일
+              성명
             </label>
           </div>
 
@@ -302,7 +375,7 @@ export default function LoginForm() {
               htmlFor="username"
               style={floatingLabelStyle(focusUsername || username !== "")}
             >
-              전화번호, 사용자 이름 또는 이메일
+              사용자 이름
             </label>
           </div>
 
@@ -314,18 +387,18 @@ export default function LoginForm() {
           {/* 가입 버튼 */}
           <button
             type="submit"
-            disabled={!isLoginEnabled}
+            disabled={!isSignupEnabled}
             style={{
               marginTop: "12px",
               width: "100%",
               padding: "8px 0",
-              backgroundColor: isLoginEnabled ? "#0095f6" : "#b2dffc",
-              color: isLoginEnabled ? "#fff" : "#eee",
+              backgroundColor: isSignupEnabled ? "#0095f6" : "#b2dffc",
+              color: isSignupEnabled ? "#fff" : "#eee",
               border: "none",
               borderRadius: "8px",
               fontWeight: "bold",
               fontSize: "14px",
-              cursor: isLoginEnabled ? "pointer" : "not-allowed",
+              cursor: isSignupEnabled ? "pointer" : "not-allowed",
               transition: "background-color 0.3s ease",
             }}
           >
@@ -362,13 +435,3 @@ export default function LoginForm() {
     </div>
   );
 }
-
-const inputStyle = {
-  width: "100%",
-  padding: "10px",
-  fontSize: "12px",
-  borderRadius: "4px",
-  border: "1px solid #dbdbdb",
-  backgroundColor: "#fafafa",
-  boxSizing: "border-box", // ✅ 이거 추가!
-};
