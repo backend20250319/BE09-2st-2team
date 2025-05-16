@@ -1,21 +1,3 @@
-.image-wrapper {
-  position: relative; /* 자식 절대 위치 기준 */
-}
-
-/* 전체 모달을 어둡게 덮는 오버레이 */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.7); /* 반투명 검정 배경 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000; /* 다른 요소들보다 위에 보이게 */
-}
-
 /* 모달 내부 전체 컨테이너 */
 .modal-container {
   position: relative;
@@ -29,13 +11,6 @@
   overflow: hidden; /* 내부 넘치는 요소 숨김 */
 }
 
-/* 모달의 콘텐츠 래퍼 (좌우 구조 포함) */
-.modal-content {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
 /* 왼쪽 이미지 영역 */
 .modal-left {
   flex: 1.2; /* 비율적으로 오른쪽보다 약간 더 큼 */
@@ -43,25 +18,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/* 이미지 슬라이더 컨테이너 */
-.image-slider {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* 슬라이드 안에 들어가는 이미지 스타일 */
-.modal-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain; /* 비율 유지하며 안에 맞춤 */
-  border-radius: 0; /* 둥근 모서리 없음 */
 }
 
 /* 오른쪽 텍스트 영역 */
@@ -74,44 +30,58 @@
   overflow-y: auto; /* 스크롤 가능 */
 }
 
-/* 슬라이드 전환 버튼 공통 스타일 */
+.image-wrapper {
+  position: relative;
+}
+
+/* 이미지 슬라이더 전용 스타일 */
+.image-slider {
+  position: relative;
+  font-size: clamp(10px, 1.5vw, 16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 0;
+}
+
 .slide-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.4); /* 반투명 배경 */
+  background: rgba(0, 0, 0, 0.4);
   color: white;
   border: none;
   font-size: 2rem;
   width: 40px;
   height: 40px;
   cursor: pointer;
-  border-radius: 50%; /* 동그란 버튼 */
+  border-radius: 50%;
   user-select: none;
   z-index: 10;
 }
 
-/* 이전 버튼 위치 왼쪽 */
 .slide-btn.prev {
   left: 0;
-  width: clamp(20px, 5vw, 40px);
-  height: clamp(20px, 5vw, 40px);
 }
 
-/* 다음 버튼 위치 오른쪽 */
 .slide-btn.next {
   right: 0px;
   width: clamp(20px, 5vw, 40px);
   height: clamp(20px, 5vw, 40px);
 }
 
-/* 인디케이터 (사진 위에 겹치도록 위치 조정) */
 .slide-indicator {
   position: absolute;
-  bottom: 16px; /* 이미지 하단에서 16px 위 */
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.5); /* 반투명 배경으로 가독성 향상 */
+  background: transparent;
   padding: 6px 10px;
   border-radius: 12px;
   z-index: 5;
@@ -128,69 +98,11 @@
 }
 
 .slide-indicator span.active {
-  background: #fff; /* 현재 위치는 흰색으로 강조 */
-}
-
-/* 모달 닫기 버튼 */
-.modal-close {
-  font-size: clamp(24px, 5vw, 40px);
-  position: absolute;
-  top: 0.1vh;
-  right: 10px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  color: white;
-}
-
-/* 닫기 아이콘의 크기 맞춤 */
-.modal-close-icon {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* 프로필 이미지 */
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #ccc; /* 연한 회색 테두리 */
+  background: #fff;
 }
 
 .post-details-grid {
   display: grid;
-  grid-template-rows: auto auto auto;
-  row-gap: 12px;
-  padding: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 20px; /* 혹은 grid-gap */
 }
-
-.modal-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%; /* 동그랗게 */
-  border: 1.5px solid gray; /* 회색 테두리 */
-  object-fit: cover;
-}
-
-.modal-description {
-  font-size: 14px;
-  line-height: 1.4;
-  color: #333;
-}
-
-.post-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* 버튼 스타일은 기존 CSS 유지 */

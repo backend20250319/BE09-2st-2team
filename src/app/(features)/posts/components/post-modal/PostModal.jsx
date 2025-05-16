@@ -1,9 +1,6 @@
 "use client";
 
 import React from "react";
-// import PostImageSlider from ".left/PostImageSlider";
-// import PostDetails from ".right/PostDetails";
-
 import PostImageSlider from "./left/PostImageSlider";
 import PostDetails from "./right/PostDetails";
 

@@ -1,0 +1,104 @@
+.post-details-grid {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  flex-direction: column;
+  gap: 0px; /* 각 요소 간의 간격 */
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  border: 1px solid #ddd;
+  padding: 12px 0;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid gray;
+  margin-left: 5px;
+}
+
+.username {
+  font-family: "Instargram Sans", sans-serif;
+  font-weight: bold;
+}
+
+.follow-text-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: auto;
+  font-size: 14px;
+  color: #0095f6;
+  cursor: pointer;
+}
+
+.follow-text-button:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.modal-description {
+  font-family: "Instargram Sans", sans-serif;
+  font-weight: Medium;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #ddd;
+  padding: 12px 0;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.heart-icon {
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.01s ease, color 0.01s ease;
+}
+
+.heart-icon.liked {
+  color: red;
+}
+
+.like-btn.animate .heart-icon {
+  transform: scale(1.15);
+}
+
+.save-btn.saved {
+  color: goldenrod;
+}
+
+.modal-comments {
+  margin-top: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  padding: 12px 0;
+}
+
+.comment {
+  margin-bottom: 6px;
+}
+
+.comment strong {
+  margin-right: 4px;
+}

@@ -1,16 +1,21 @@
 import React, { useState } from "react";
-import "../PostModal.css";
+
+import "./PostDetails.css";
+import FollowButton from "../follow/FollowButton";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { LuSend } from "react-icons/lu";
 
 const PostDetails = ({ post }) => {
   const [liked, setLiked] = useState(post.isLiked || false);
+  const [animate, setAnimate] = useState(false);
   const [saved, setSaved] = useState(post.isSaved || false);
   const [showComments, setShowComments] = useState(true);
-  const [likeCount, setLikeCount] = useState(post.likeCount || 0);
   const commentCount = post.comments?.length || 0;
 
   const toggleLike = () => {
-    setLikeCount(likeCount + (liked ? -1 : 1));
-    setLiked(!liked);
+    setLiked((prev) => !prev);
+    setAnimate(true);
+    setTimeout(() => setAnimate(false), 300); // 애니메이션 지속 시간만큼 기다림
   };
 
   const toggleSave = () => {
@@ -23,21 +28,29 @@ const PostDetails = ({ post }) => {
       <div className="modal-header">
         <img src={post.userAvatar} alt="프로필" className="avatar" />
         <span className="username">{post.username}</span>
+        <FollowButton />
       </div>
 
       {/* 두 번째 행: 설명 */}
-      <div className="modal-description">{post.description}</div>
+      <div className="modal-description">{post.content}</div>
 
       {/* 세 번째 행: 좋아요, 댓글, 스크랩 */}
       <div className="post-actions">
         <button
-          className={`action-btn like-btn ${liked ? "liked" : ""}`}
+          className={`action-btn like-btn ${liked ? "liked" : ""} ${
+            animate ? "animate" : ""
+          }`}
           onClick={toggleLike}
           aria-label={liked ? "좋아요 취소" : "좋아요"}
         >
-          {liked ? "❤️" : "🤍"}
+          {liked ? (
+            <FaHeart className="heart-icon liked" />
+          ) : (
+            <FaRegHeart className="heart-icon" />
+          )}
         </button>
-        <span className="like-count">{likeCount}</span>
+
+        {/* <span className="like-count">{likeCount}</span> */}
 
         <button
           className="action-btn comment-btn"
@@ -46,8 +59,9 @@ const PostDetails = ({ post }) => {
         >
           💬
         </button>
-        <span className="comment-count">{commentCount}</span>
-
+        <button className={`action-btn send-btn`}>
+          <LuSend />
+        </button>
         <button
           className={`action-btn save-btn ${saved ? "saved" : ""}`}
           onClick={toggleSave}
