@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../PostModal.css";
+import "./PostImageSlider.css";import "../PostModal.css";
 
 const PostImageSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,13 +16,15 @@ const PostImageSlider = ({ images }) => {
     <div className="modal-left">
       <div className="image-slider">
         <div className="image-wrapper">
-          <button
-            className="slide-btn prev"
-            onClick={goPrev}
-            aria-label="이전 이미지"
-          >
-            ‹
-          </button>
+          {currentIndex !== 0 && (
+            <button
+              className="slide-btn prev"
+              onClick={goPrev}
+              aria-label="이전 이미지"
+            >
+              ‹
+            </button>
+          )}
 
           <img
             src={images[currentIndex]}
