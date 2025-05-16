@@ -1,65 +1,139 @@
-:root {
-  scroll-behavior: auto;
-}
-
-.noti-container {
-  width: 396px;
-  height: 738;
-  margin: 0 auto;
-  padding: 16px;
-  background-color: black;
+.container {
+  width: 397;
+  margin: 0;
+  padding: 0;
+  background-color: white;
   position: fixed;
-  color: white;
-  border: 0;
+  height: 100%;
+  overflow: auto;
+  border-radius: 0 18px 18px 0;
+  border: 1px solid #d1d5db;
 }
 
-/* 개별 알림 항목 */
+.noti-wrapper {
+  margin-left: 75px;
+  margin-top: none;
+}
+
+.noti-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  background-color: white;
+}
+
 .noti-item {
-  width: 396;
-  height: 40;
+  display: flex;
+  margin: 12px 0;
+}
+.noti-item:hover {
+  background-color: #efefef;
+}
+.btn1 {
+  background-color: #3b82f6;
+  color: white;
+}
+.btn1:hover {
+  background-color: #2563eb;
+}
+.btn2 {
+  background-color: #efefef;
+  margin-right: 20px;
+  color: black;
+}
+
+.btn2:hover {
+  background-color: #c5c5c5;
+}
+
+.noti-profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 20px;
+}
+
+.noti-content {
+  margin-top: 8px;
+  flex: 1;
+  font-size: 14px;
+  margin-left: 5px;
+  line-height: 1.4;
+}
+
+.noti-username {
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.noti-preview {
+  margin-top: 5px;
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  margin-left: 8px;
+  margin-right: 20px;
+}
+
+.noti-btn {
+  margin-left: 8px;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 12px;
+  margin-bottom: 15px;
+  width: 74px;
+  height: 34px;
+  font-weight: bold;
+}
+
+.noti-time {
+  color: #999;
+  font-size: 15px;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.noti-section-title {
+  font-weight: bold;
+  margin-top: 24px;
+  margin-left: 20px;
+}
+
+.follow-request {
   display: flex;
   align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid black;
+  margin-bottom: 16 px;
 }
 
-/* 사용자 프로필 이미지 */
-.noti-profile {
-  width: 44px;
-  height: 44px;
+.noti-bold {
+  font-weight: bold;
+}
+
+.noti-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #3b82f6;
   border-radius: 50%;
-  object-fit: cover;
-  margin-right: 12px;
-  flex-direction: row;
 }
 
-.noti-story {
-  width: 44px;
-  height: 44px;
-  border-radius: 15%;
-  object-fit: cover;
-  margin-right: 12px;
-  flex-direction: row;
+.follow-btn {
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #dbdbdb;
+  width: 52;
+  height: 34;
+  margin-left: 6px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-/* 텍스트 내용 */
-.noti-content {
-  padding-top: 12px;
-  height: 50px;
-  text-align: left;
-  flex-direction: row;
-  font-size: 15px;
-  color: white;
-}
-
-.notification-content .username {
-  font-weight: 600;
-  margin-right: 4px;
-}
-
-/* 시간 */
-.noti-time {
-  font-size: 12px;
-  color: #8e8e8e;
-  margin-top: 4px;
+.divider {
+  border: none;
+  border-top: 1px solid #d1d5db;
+  margin: 1rem 0;
 }
