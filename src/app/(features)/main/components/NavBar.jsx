@@ -6,13 +6,13 @@ const Navbar = () => (
       top: 0,
       left: 0,
       width: "244px", // 사이드바 너비
-      height: "100vh", // 화면 전체 높이
+      height: "100dvh", // 화면 전체 높이
+      boxSizing: "border-box",
       backgroundColor: "#fff",
       borderRight: "1px solid #dbdbdb",
       display: "flex",
       flexDirection: "column",
-      padding: "20px 10px",
-      boxSizing: "border-box",
+      padding: "8px 12px 20px 12px",
     }}
   >
     <h2 style={{ fontWeight: "bold", marginBottom: "30px" }}>Instagram</h2>
