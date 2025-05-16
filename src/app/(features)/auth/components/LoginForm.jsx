@@ -157,7 +157,7 @@ export default function LoginForm() {
           marginTop: "12px",
           width: "100%",
           padding: "8px 0",
-          backgroundColor: isLoginEnabled ? "#0095f6" : "#b2dffc",
+          backgroundColor: isLoginEnabled ? "#0095f6" : "#4db5fa",
           color: isLoginEnabled ? "#fff" : "#eee",
           border: "none",
           borderRadius: "8px",
