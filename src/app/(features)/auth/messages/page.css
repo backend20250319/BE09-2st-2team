@@ -1,0 +1,5 @@
+.wrap {
+  display: grid;
+  grid-template-columns: 30% auto;
+  grid-gap: 300px;
+}
