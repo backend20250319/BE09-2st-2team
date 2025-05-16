@@ -6,7 +6,7 @@ export default function LoginPage() {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fafafa",
+    backgroundColor: "#fff",
     marginTop: "32px",
   };
 
