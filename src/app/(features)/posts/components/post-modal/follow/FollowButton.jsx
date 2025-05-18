@@ -10,7 +10,7 @@ const FollowButton = () => {
     setTimeout(() => {
       setIsLoadingFollow(false);
       setIsFollowed(true);
-    }, 4000000); // 4초 후 완료 처리
+    }, 2000); // 4초 후 완료 처리
   };
 
   if (isFollowed) return null; // 완료되면 컴포넌트 자체 사라짐
