@@ -1,7 +1,7 @@
 // pages/page.jsx
 import React from "react";
 import Navbar from "../components/NavBar";
-import StoryBar, { Stories } from "../components/Story";
+import StoryBar, { Stories, StoryItem } from "../components/Story";
 import FeedPage, { FeedTray, Feed } from "../components/Feed";
 import SideBar, {
   SideContents,
@@ -14,13 +14,14 @@ import styles from "../styles/MainPage.module.css";
 const MainPage = () => {
   return (
     <>
-      <Navbar />
-
       <div className={styles.container}>
+        <Navbar />
         <div className={styles.content}>
           <div className={styles.section}>
             <StoryBar>
-              <Stories></Stories>
+              <Stories>
+                <StoryItem></StoryItem>
+              </Stories>
             </StoryBar>
             <FeedPage>
               <FeedTray>

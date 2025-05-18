@@ -11,10 +11,9 @@
   max-width: 1064px;
   background-color: rgb(255, 255, 255);
   width: 100%;
-  gap: 32px;
   justify-content: center;
   flex-direction: row;
-  margin: 10px 130px 0 130px;
+  margin: 0px 0px 0 110px;
 }
 
 .section {
@@ -25,7 +24,6 @@
   width: 100%;
   flex-direction: column;
   display: block;
-  margin-left: 30px;
   align-items: stretch;
   font-size: 14px;
 }
