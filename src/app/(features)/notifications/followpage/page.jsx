@@ -14,7 +14,7 @@ export default function FollowRequestPage() {
             textAlign: "center",
             fontSize: "15px",
             fontWeight: "700",
-            marginLeft: "120px",
+            marginLeft: "110px",
             marginTop: "20px",
           }}
         >
@@ -41,7 +41,7 @@ export default function FollowRequestPage() {
         profile="/images/profile/profile1.jpg"
         name="한주전"
       />
-      <h4>회원님을 위한 추천</h4>
+      <h4 style={{ marginLeft: "20px" }}>회원님을 위한 추천</h4>
       <FollowItem
         user="one_lastweek"
         profile="/images/profile/profile1.jpg"

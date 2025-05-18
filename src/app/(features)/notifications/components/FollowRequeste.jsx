@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 export default function FollowRequest({ user, count, profile }) {
   const router = useRouter();
   const handleClick = () => {
-    router.push("/notifications/followpage");
+    router.push("/notifications/noti");
   };
   return (
     <div
@@ -22,7 +22,7 @@ export default function FollowRequest({ user, count, profile }) {
       </div>
       <div
         className="noti-dot"
-        style={{ marginLeft: "100px", marginRight: "20px" }}
+        style={{ marginLeft: "100px", marginRight: "12px" }}
       />
       <img
         src="/images/noti/arrowright.png"

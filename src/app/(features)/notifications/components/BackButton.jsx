@@ -1,14 +1,7 @@
 // components/BackButton.jsx
 "use client";
-import { useRouter } from "next/navigation";
 
-export default function BackButton() {
-  const router = useRouter();
-
-  const handleClick = () => {
-    router.push("/notifications/noti");
-  };
-
+export default function BackButton({ onClick }) {
   return (
     <>
       <img
@@ -16,11 +9,11 @@ export default function BackButton() {
         style={{
           width: "22px",
           borderRadius: "50%",
-          marginRight: "12px",
           height: "100%",
-          marginTop: "18px",
+          marginLeft: "10px",
+          marginRight: "30px",
         }}
-        onClick={handleClick}
+        onClick={onClick}
       />
     </>
   );
