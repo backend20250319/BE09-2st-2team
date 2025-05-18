@@ -1,108 +1,36 @@
-/* 모달 내부 전체 컨테이너 */
-.modal-container {
-  position: relative;
+.modal-overlay {
+  position: fixed; /* 화면에 고정 */
+  top: 0;
+  left: 0;
+  width: 100vw; /* 뷰포트 너비 100% */
+  height: 100vh; /* 뷰포트 높이 100% */
+  background: rgba(0, 0, 0, 0.7); /* 반투명 배경 */
   display: flex;
-  flex-direction: row; /* 좌우 배치 */
-  width: 80vw;
-  height: 80vh;
-  max-width: 900px;
-  background-color: white;
-  border-radius: 8px;
-  overflow: hidden; /* 내부 넘치는 요소 숨김 */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-/* 왼쪽 이미지 영역 */
+.modal-content {
+  height: 600px; /* 단위 추가 */
+  width: auto;
+  display: flex; /* 부모가 flex 컨테이너 */
+}
+
 .modal-left {
-  flex: 1.2; /* 비율적으로 오른쪽보다 약간 더 큼 */
-  background-color: black; /* 이미지 배경 */
+  flex: 1.2;
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* 오른쪽 텍스트 영역 */
 .modal-right {
-  flex: 1; /* 비율적으로 왼쪽보다 작음 */
+  flex: 1;
   display: flex;
   flex-direction: column;
   padding: 16px;
   background-color: white;
-  overflow-y: auto; /* 스크롤 가능 */
-}
-
-.image-wrapper {
-  position: relative;
-}
-
-/* 이미지 슬라이더 전용 스타일 */
-.image-slider {
-  position: relative;
-  font-size: clamp(10px, 1.5vw, 16px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 0;
-}
-
-.slide-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.4);
-  color: white;
-  border: none;
-  font-size: 2rem;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  border-radius: 50%;
-  user-select: none;
-  z-index: 10;
-}
-
-.slide-btn.prev {
-  left: 0;
-}
-
-.slide-btn.next {
-  right: 0px;
-  width: clamp(20px, 5vw, 40px);
-  height: clamp(20px, 5vw, 40px);
-}
-
-.slide-indicator {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: transparent;
-  padding: 6px 10px;
-  border-radius: 12px;
-  z-index: 5;
-}
-
-.slide-indicator span {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin: 0 4px;
-  background: #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.slide-indicator span.active {
-  background: #fff;
-}
-
-.post-details-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 20px; /* 혹은 grid-gap */
+  overflow-y: auto;
+  width: 100px;
 }

@@ -1,9 +1,12 @@
 .post-details-grid {
   display: flex;
-  width: 100%;
+  width: 500px;
   padding: 0;
   flex-direction: column;
   gap: 0px; /* 각 요소 간의 간격 */
+  border: 1px solid #ddd;
+  font-size: 14px; /* 모든 자식 기본 글꼴 크기 지정 */
+  font-family: "Instargram Sans", sans-serif; /* 글꼴도 통일 */
 }
 
 .modal-header {
@@ -11,17 +14,16 @@
   align-items: center;
   gap: 10px;
   height: 40px;
-  border: 1px solid #ddd;
-  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+  padding: 15px;
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1.5px solid gray;
-  margin-left: 5px;
+  border: 1.5px solid #ddd;
 }
 
 .username {
@@ -50,15 +52,81 @@
   font-size: 15px;
   line-height: 1.4;
   color: #333;
-  border: 1px solid #ddd;
-  padding: 10px;
+  padding: 15;
+  display: flex;
+  gap: 5;
+}
+
+.content-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid #ddd;
+  margin-right: 15;
+}
+
+.username {
+  font-size: 14px;
+}
+
+.text-group {
+  display: inline; /* 유저네임 + 글이 자연스럽게 이어지도록 */
+}
+
+.scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0px; /* 스크롤바 숨기기 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.scroll-area::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.content-username {
+  font-family: "Instargram Sans", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: 5;
+}
+
+.content-text {
+  font-family: "Instargram Sans", sans-serif;
+  font-weight: 400;
+  white-space: pre-line;
+  font-size: 14px;
+}
+
+.modal-comments {
+  margin-top: 0px;
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+.comment {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+  gap: 5;
+}
+
+.comment-user {
+  font-weight: 600;
+  margin-right: 5;
+}
+
+.comment-group {
+  display: inline; /* 유저네임 + 글이 자연스럽게 이어지도록 */
 }
 
 .post-actions {
   display: flex;
   align-items: center;
   gap: 12px;
-  border: 1px solid #ddd;
+  border-top: 1px solid #ddd;
   padding: 12px 0;
 }
 
@@ -66,13 +134,14 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .heart-icon {
   color: black;
   font-size: 24px;
   cursor: pointer;
+  margin-left: 5;
   transition: transform 0.01s ease, color 0.01s ease;
 }
 
@@ -84,21 +153,32 @@
   transform: scale(1.15);
 }
 
-.save-btn.saved {
-  color: goldenrod;
+.save-btn {
+  color: black;
+  margin-right: 10;
+  margin-left: auto;
 }
 
-.modal-comments {
-  margin-top: 10px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  padding: 12px 0;
+.post-date {
+  font-weight: lighter;
+  font-size: 12px;
 }
 
-.comment {
-  margin-bottom: 6px;
+.row4 {
+  padding: 10;
+  border: #ddd;
 }
 
-.comment strong {
-  margin-right: 4px;
+.add-comment {
+  padding: 5;
+}
+
+.comment-input {
+  border: none;
+}
+
+.comment-input:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
 }
