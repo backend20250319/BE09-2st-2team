@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+
 import "./style.css";
 
 export default function SearchComponent() {
@@ -60,13 +61,17 @@ export default function SearchComponent() {
   const [query, setQuery] = useState("");
   const [history, setHistory] = useState([]);
 
+  const inputRef = useRef(null);
+  const [isFocused, setIsFocused] = useState(true);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+
   const handleChange = (e) => {
     const value = e.target.value;
     setQuery(value);
-
-    // if (value && !history.includes(value)) {
-    //   setHistory([value, ...history]);
-    // }
   };
 
   // 클릭된 프로필을 최근 검색에 추가하는 함수
@@ -91,13 +96,45 @@ export default function SearchComponent() {
       <div className="search-box">
         <h2 className="search-title">검색</h2>
         <div className="search-bar">
+          {!isFocused && query === "" && (
+            <img
+              src="/images/search/searchicon.png"
+              alt="검색 아이콘"
+              className="search-icon"
+              width={14}
+              height={14}
+              draggable={false}
+            />
+          )}
           <input
             type="text"
             placeholder="검색"
             value={query}
             onChange={handleChange}
             className="search-input"
+            style={{ paddingLeft: !isFocused && query === "" ? "36px" : "16px" }}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            ref={inputRef}
           />
+          {isFocused && (
+            <button
+              className="clear-button"
+              onMouseDown={(e) => {
+                e.preventDefault();
+                setQuery("");
+                inputRef.current?.blur(); // 포커스 해제
+              }}
+            >
+              <img
+                src="/images/search/xicon.png"
+                alt="clear"
+                width={15}
+                height={15}
+                draggable={false}
+              />
+            </button>
+          )}
         </div>
         <hr />
       </div>

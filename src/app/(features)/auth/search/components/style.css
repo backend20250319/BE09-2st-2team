@@ -34,6 +34,10 @@
   margin: 0 16px;
   margin-bottom: 24px;
   height: 64px;
+
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .search-input {
@@ -44,6 +48,10 @@
   background-color: #efefef;
   padding: 3 16px;
   font-size: 16px;
+  outline: none;
+
+  padding-left: 40px;
+    /* 검색 아이콘 공간 확보 */
 }
 
 hr {
@@ -130,4 +138,26 @@ h4 {
   font-size: 14px;
   color: #0095f6;
   font-weight: bold;
+}
+
+.clear-button {
+  position: absolute;
+  right:16px;
+  /* input 내부 오른쪽 여백 감안 */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #888;
+}
+
+.clear-button:hover {
+  color: #333;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  pointer-events: none;
+  /* 아이콘에 클릭 이벤트 차단 */
 }
