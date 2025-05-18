@@ -14,9 +14,8 @@ import styles from "../styles/MainPage.module.css";
 const MainPage = () => {
   return (
     <>
-      <Navbar />
-
       <div className={styles.container}>
+        <Navbar />
         <div className={styles.content}>
           <div className={styles.section}>
             <StoryBar>

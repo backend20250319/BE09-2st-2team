@@ -6,6 +6,9 @@ const FeedPage = ({ children }) => (
     style={{
       width: "100%",
       height: "100%",
+      alignItems: "center0",
+      alignContent: "stretch",
+      borderTop: "1px solid black",
     }}
   >
     {children}
@@ -81,7 +84,6 @@ const Feed = () => {
     <div
       style={{
         backgroundColor: "rgb(255,255,255)",
-        padding: "10px",
       }}
     >
       {posts.map((post, index) => (

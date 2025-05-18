@@ -4,7 +4,7 @@ const PostCard = ({ username, imgUrl, content }) => (
     style={{
       borderBottom: "1px solid #dbdbdb",
       backgroundColor: "#fff",
-      marginBottom: "32px",
+      marginBottom: "20px",
       fontSize: "14px",
     }}
   >
