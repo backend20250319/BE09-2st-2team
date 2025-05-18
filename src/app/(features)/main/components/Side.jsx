@@ -1,7 +1,7 @@
 // components/Sidebar.jsx
 "use client";
 import RecommendedUser from "./RecommendedUser";
-import recommendedUsers from "./recommendedUsers";
+import recommendedUsers from "../data/recommendedUsers";
 
 const Sidebar = ({ children }) => (
   <div style={{ width: "319px", paddingLeft: "64px" }}>{children}</div>
@@ -31,7 +31,7 @@ const SideMyProfile = () => (
   >
     <div style={{ width: "56px", height: "44px" }}>
       <img
-        src="/images/main/insta_basicprofile.jpg"
+        src="/images/main/main1_1.jpg"
         alt="profile"
         style={{ width: "44px", height: "44px", borderRadius: "50%" }}
       />
@@ -58,17 +58,28 @@ const SideMyProfile = () => (
         alignSelf: "center",
       }}
     >
-      <div
+      <a
+        href="#"
+        onClick={(e) => e.preventDefault()} // 나중에 실제 경로로 변경
         style={{
-          color: "rgb(0, 149, 246)",
+          color: "#0095f6",
           fontSize: "12px",
+          textDecoration: "none",
           fontWeight: "bold",
           whiteSpace: "nowrap",
           display: "inline-block",
+          cursor: "pointer",
+          transition: "color 0.1s ease",
+        }}
+        onMouseEnter={(e) => {
+          e.target.style.color = "rgb(38, 38, 38)";
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.color = "rgb(0, 149, 246)";
         }}
       >
         전환
-      </div>
+      </a>
     </div>
   </div>
 );
@@ -121,7 +132,7 @@ const SideRecommend = () => (
             e.target.style.color = "#262626";
           }}
         >
-          모두보기
+          모두 보기
         </span>
       </div>
       <div
@@ -222,31 +233,39 @@ const SideFooter = () => {
             }}
           >
             {items.map((item, index) => (
-              <a
+              <span
                 key={index}
-                href="#"
-                onClick={(e) => e.preventDefault()}
-                style={{
-                  color: "#c7c7c7",
-                  textDecoration: "none",
-                  cursor: "pointer",
-                  transition: "color 0.2s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.color = "#999";
-                  e.target.style.textDecoration = "underline";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.color = "#c7c7c7";
-                  e.target.style.textDecoration = "none";
-                }}
+                style={{ display: "flex", alignItems: "center" }}
               >
-                {item}
-                {index < items.length - 1 && <span> · </span>}
-              </a>
+                <a
+                  href="#"
+                  onClick={(e) => e.preventDefault()}
+                  style={{
+                    color: "#c7c7c7",
+                    textDecoration: "none",
+                    cursor: "pointer",
+                    transition: "color 0.1s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.color = "#999";
+                    e.target.style.textDecoration = "underline";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.color = "#c7c7c7";
+                    e.target.style.textDecoration = "none";
+                  }}
+                >
+                  {item}
+                </a>
+                {index < items.length - 1 && (
+                  <span style={{ margin: "0 2px" }}>·</span> // ← 이건 링크 아님
+                )}
+              </span>
             ))}
           </div>
-          <div style={{ marginTop: "8px" }}>© 2025 INSTAGRAM FROM META</div>
+          <div style={{ marginTop: "20px" }}>
+            © 2025 INSTAKILOGRAM FROM META
+          </div>
         </div>
       </div>
     </div>
