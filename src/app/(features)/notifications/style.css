@@ -1,18 +1,17 @@
 .container {
-  width: 397;
+  width: 397px;
   margin: 0;
   padding: 0;
   background-color: white;
-  position: fixed;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
   border-radius: 0 18px 18px 0;
   border: 1px solid #d1d5db;
 }
 
 .noti-wrapper {
   margin-left: 75px;
-  margin-top: none;
+  margin-top: 0;
 }
 
 .noti-title {
@@ -26,16 +25,20 @@
   display: flex;
   margin: 12px 0;
 }
+
 .noti-item:hover {
   background-color: #efefef;
 }
+
 .btn1 {
   background-color: #3b82f6;
   color: white;
 }
+
 .btn1:hover {
   background-color: #2563eb;
 }
+
 .btn2 {
   background-color: #efefef;
   margin-right: 20px;
@@ -54,10 +57,10 @@
 }
 
 .noti-content {
-  margin-top: 8px;
+  margin-top: 20px;
   flex: 1;
   font-size: 14px;
-  margin-left: 5px;
+  margin-left: 10px;
   line-height: 1.4;
 }
 
@@ -82,7 +85,7 @@
   padding: 6px 12px;
   font-size: 14px;
   cursor: pointer;
-  margin-top: 12px;
+  margin-top: 21px;
   margin-bottom: 15px;
   width: 74px;
   height: 34px;
@@ -105,7 +108,7 @@
 .follow-request {
   display: flex;
   align-items: center;
-  margin-bottom: 16 px;
+  margin-bottom: 16px;
 }
 
 .noti-bold {
@@ -124,11 +127,11 @@
   font-size: 14px;
   cursor: pointer;
   border: 1px solid #dbdbdb;
-  width: 52;
-  height: 34;
+  width: 58px;
+  height: 34px;
   margin-left: 6px;
   font-weight: bold;
-  margin-top: 15px;
+  margin-top: 25px;
   margin-bottom: 15px;
 }
 

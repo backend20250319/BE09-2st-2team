@@ -1,25 +1,29 @@
 "use client";
 
-import BackButton from "../components/BackButton";
-import FollowItem from "../components/FollowItem";
-import NotificationSection from "../components/NotificationSection";
+import BackButton from "./BackButton";
+import FollowItem from "./FollowItem";
 
-export default function FollowRequestPage() {
+export default function FollowRequestPanel({ onBack }) {
   return (
-    <div className="container">
-      <div style={{ display: "flex", flexDirection: "row" }}>
-        <BackButton />
-        <div
-          style={{
-            textAlign: "center",
-            fontSize: "15px",
-            fontWeight: "700",
-            marginLeft: "110px",
-            marginTop: "20px",
-          }}
-        >
-          팔로우 요청
-        </div>
+    <div
+      style={{
+        width: "400px",
+        height: "100vh",
+        backgroundColor: "white",
+        overflowY: "auto",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          padding: "7px",
+          marginBottom: "-26px",
+          marginTop: "3px",
+        }}
+      >
+        <BackButton onClick={onBack} />
+        <h4 style={{ marginLeft: "90px" }}>팔로우 요청</h4>
       </div>
       <FollowItem
         user="one_lastweek"
