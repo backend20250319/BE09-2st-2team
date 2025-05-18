@@ -8,7 +8,6 @@ export default function NotificationsPage() {
 
   return (
     <div>
-      {/* 하트 버튼 */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         style={{
