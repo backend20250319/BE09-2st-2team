@@ -1,3 +1,4 @@
+"use client";
 // components/NotificationItem.jsx
 import { useState } from "react";
 export default function NotificationItem({
