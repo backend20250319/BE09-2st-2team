@@ -1,38 +1,421 @@
-## 인스타킬로그램
+- [x]  프로젝트 개요
+- [ ]  요구사항정의서
+- [ ]  소스코드(main으로 프로젝트 옮기기)
+- [x]  SPA사이트(vercel 배포)
+    - [ ]  [https://velog.io/@zzangsubin/vercel-vercel로-github-웹-페이지-배포하기](https://velog.io/@zzangsubin/vercel-vercel%EB%A1%9C-github-%EC%9B%B9-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0)
+- [ ]  테스트케이스
+- [ ]  테스트결과서
+- [x]  깃브랜치전략
+- [x]  네이밍규칙
+- [ ]  폴더규칙
+    - [x]  css파일명 일관성있게 맞추기 (style.css  or 컴포넌트 이름(search_component.css)에 맞게 각자 변경)
+    - [x]  팀원별 수정필요 - 페이지, 컴포넌트 파일 업데이트
+- [x]  스크럼회의록작성, 진척률(마일스톤,이슈)
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 프로젝트 개요
 
-## Getting Started
+---
 
-First, run the development server:
+### **인스타그램 클론 프로젝트 (5/15 ~ 5/19)**
+
+본 프로젝트는 실제 서비스와 유사한 SNS 기능들을 직접 구현함으로써 React 기반 SPA 구조에 대한 이해도를 높이는 것을 목표로 하였습니다. 또한, Git Flow 전략과 이슈·마일스톤 관리, 커밋 컨벤션 등을 적용하여 효율적인 협업을 진행하고자 하였으며, Vercel을 활용한 배포를 통해 프론트엔드 프로젝트의 배포 과정을 익히는 것을 목표로 하였습니다. 이와 함께 테스트 케이스 및 결과를 문서화하여 기능의 안정성을 검증하고 QA 프로세스를 수행하는 데에도 목적을 두고 있습니다.
+
+**⭐ 클론 사이트**
+
+- **사이트명**: 인스타그램
+- **주소**: https://www.instagram.com/
+
+![image.png](attachment:b89c7404-414b-448d-8afe-c41bd0dd3d24:image.png)
+
+**📄 클론 페이지**
+
+- 메인(홈) 페이지
+- 로그인/회원가입 페이지
+- 스토리 페이지
+- 알림 페이지
+- 게시글 페이지
+- 검색 페이지
+- DM 페이지
+
+**🗓 일정 계획**
+
+| **기간** | **진행 내용** |
+| --- | --- |
+| 1일차 | 사이트 분석 / 페이지 역할 분담 / 협업 관련 규칙 정의 |
+| 2일차 | 레이아웃 구성 및 컴포넌트 구현 |
+| 3일차 | 연관 페이지 연동 및 테스트, 배포 및 마무리 문서 작성 |
+
+## 요구사항 정의서
+
+---
+
+| 분류 | no | 기능 | 설명 | 비고 | 담당자 |
+| --- | --- | --- | --- | --- | --- |
+| 공통(푸터) | REQ-FOOTER-001 | 푸터 | 로그인, 회원가입, 프로필 페이지 하단 위치 |  | @정아 이 |
+|  |  |  |  |  |  |
+|  |  |  |  |  |  |
+| 로그인 | REQ-LOGIN-001 | 로그인 form아이디 / 비밀번호 입력 | 로그인 입력 UI | - 비밀번호 표시 / 숨기기 기능 필요- 잘못된 입력값 > 에러 텍스트 표시 | @정아 이 |
+| 로그인 | REQ-LOGIN-002 | 로그인 버튼 | 메인 페이지로 이동 |  | @정아 이 |
+| 로그인 | REQ-LOGIN-003 | 가입하기 버튼 | 회원가입 페이지로 이동 |  | @정아 이 |
+|  |  |  |  |  |  |
+| 회원가입 | REQ-SIGNUP-001 | 회원가입 form전화번호, 비밀번호 입력 등등 |  | - 잘못된 입력값 > 에러 텍스트 표시 | @정아 이 |
+| 회원가입 | REQ-SIGNUP-002 | 가입하기 버튼 | 로그인 페이지로 이동 |  | @정아 이 |
+| 회원가입 | REQ-SIGNUP-003 | 로그인 버튼 | 로그인 페이지로 이동 |  | @정아 이 |
+|  |  |  |  |  |  |
+|  |  |  |  |  |  |
+| 스토리 | REQ-STORY-001 | 스토리 전체화면(스토리 목록을 눌렀을때) | 스토리 썸네일을 해당 유저 스토리 전체화면으로 전환 양쪽으로 스토리의 썸네일을 보여줌 | -5초 지나면 다음 화면으로 넘어감 | @현우 임 |
+|  | REQ-STORY-002 | 다음 스토리 버튼 | 스토리 전체화면에서 오른쪽 버튼 누르면  다음 스토리로 이동 | 맨 오른쪽 스토리일 경우 다음 스토리 버튼 사라짐 | @현우 임 |
+|  | REQ-STORY-003 | 이전 스토리 버튼 | 스토리 전체화면에서 왼쪽 버튼 누르면 이전 스토리로 이동 | 맨 왼쪽 스토리일 경우 이전 스토리 버튼 사라짐 | @현우 임 |
+|  |  |  |  |  |  |
+| 알림 | REQ-NOTIFY-001 | 알림 목록 표시 | 좋아요, 팔로우, 댓글등을 구분하여 리스트로 나타내줌 | -최근 순으로 위에서부터 정렬-팔로우 파란색 버튼을 누를 경우 회색 팔로잉 버튼으로 바뀜 | @현우 임 |
+|  | REQ-NOTIFY-002 | 팔로우 요청 페이지 | 팔로우 요청 페이지로 이동 | -팔로우 요청 페이지로 이동-화살표 누르면 다시 알림 페이지로 이동 | @현우 임 |
+|  |  |  |  |  |  |
+| 프로필 | REQ-PROFILE-001 | 프로필 페이지 표시 | 프로필 편집, 보관된 스토리 보러가기 버튼 | - 버튼 위에 마우스 hover 상태 시, 진한 색으로 변함. | @이혜빈 |
+| 프로필 | REQ-PROFILE-002 | 포스트 목록 표시 | 프로필 페이지에서 아래로 스크롤시 포스트 목록 보기 가능 | - 스크롤 시 한 줄에 3개씩 게시물 리스트 보임 | @이혜빈 |
+| 게시글 | REQ-POST-001 | 게시글상세조회 | 프로필 페이지에서 포스트 클릭시 위에 겹쳐서 게시글 페이지 모달창 뜸 | - 뒷 배경 진한 회색으로 처리- 좋아요, 스크랩, 댓글 남기기 가능 | @이혜빈 |
+| 게시글 | REQ-POST-002 | 게시글에 좋아요 | 좋아요 클릭시 하트가 커지면서 바뀜 |  | @이혜빈 |
+|  |  |  |  |  |  |
+|  |  |  |  |  |  |
+| 메인화면 | REQ-MAIN-001 | 메인 피드 스크롤 내리기 | 아래로 스크롤하여 게시글 보기 |  | @준서 박 |
+| 메인화면 | REQ-MAIN-002 | 게시글 - 프로필 버튼 | 게시글의 프로필을 누르면 해당 프로필로 이동 |  | @준서 박 |
+| 메인화면 | REQ-MAIN-003 | 게시글 - 좋아요 누르기 버튼 | 게시글 하단에 있는 하트를 눌러 좋아요 표시하기 | - 좋아요를 누르면 하트가 움직이면서 빨간색으로 변하고 좋아요 수가 늘어남- 이미 표시된 좋아요를 다시 누르면 좋아요 수가 줄어들면서 하트 색깔이 하얀색으로 돌아감 | @준서 박 |
+| 메인화면 | REQ-MAIN-004 | 게시글 더보기 버튼 | 게시글 하단의 더보기를 눌러 전체 게시글 확인 | - 게시글 더보기를 누르면 다시 게시글을 줄일 수 없음- 더보기 버튼을 누르기 전에는 게시글의 첫번째 줄만 나옴 | @준서 박 |
+| 메인화면 | REQ-MAIN-005 | 댓글 모두보기 버튼 (확인하기) | 버튼을 눌러 게시글에 달린 모든 댓글 확인 | - 폼 화면으로 전환, 배경은 회색으로 변함- 주변 배경을 누르면 폼 화면이 사라짐- ‘댓글 n개 모두보기’ 형식 | @준서 박 |
+| 메인화면 | REQ-MAIN-006 | 댓글 달기 | 게시글 맨 밑 하단을 클릭하여 댓글 등록 | - ‘댓글 달기…’가 placeholder로 들어가 있기 | @준서 박 |
+| 메인화면 | REQ-MAIN-007 | 댓글 말풍선 버튼 (확인하기) | 버튼을 눌러 게시글에 달린 모든 댓글 확인 | - 폼 화면으로 전환, 배경은 회색으로 변함- 주변 배경을 누르면 폼 화면이 사라짐 | @준서 박 |
+| 메인화면 | REQ-MAIN-009 | 게시글 설정 기능 | 버튼을 누르면 신고~취소 버튼이 나타남 | - 폼 화면으로 전환, 배경은 회색으로 변함- 주변 배경을 누르면 폼 화면이 사라짐 | @준서 박 |
+| 메인화면 | REQ-MAIN-010 | 좌측 네비게이션바 | 홈, 검색, 릴스, 메시지, 알림, 프로필 버튼을 누르면 각각의 창으로 이동할 수 있는 네비게이션 바 | - 마우스를 갖다대면 회색으로 변함 | @준서 박 |
+|  |  |  |  |  |  |
+| DM 목록 페이지 | REQ-DM-001 | DM 목록 페이지 | DM목록페이지 | -채팅중인 채팅창 표시
+-새로운 메시지 보내기 버튼출력
+-새로운 메시지 보내기 버튼 누를시 보낼사람 선택창 출력
+-채팅중인 상대 프로필 표시  | @범석 박 |
+| DM 목록 페이지 | REQ-DM-002 | 채팅창 | 채팅창 페이지 | - 대화 내용 표시 
+- 대화 상세보기 버튼 클릭시 대화상세보기 창 출력
+-대화방 나가기 , 대화방 삭제 | @범석 박 |
+| DM 목록 페이지 | REQ-DM-003 | 채팅창 | 대화내용 상세보기 | - 채팅 삭제 , 신고 , 차단 버튼 출력 | @범석 박 |
+| 검색 페이지 | REQ-SEARCH-001 | 검색 페이지 | 검색창 | - 검색 | @범석 박 |
+| 검색 페이지 | REQ-SEARCH-002 | 검색 페이지 | 목록 | - 최근 검색 항목  - 최근 검색 항목 모두 지우기 | @범석 박 |
+
+## SPA 사이트
+
+---
+
+https://be-09-2st-2team.vercel.app/
+
+## 테스트 케이스
+
+---
+
+## 테스트 결과서
+
+---
+
+## 마일스톤 & 이슈 관리
+
+---
+
+https://github.com/backend20250319/BE09-2st-2team/milestone/2
+
+## 스크럼 미팅
+
+---
+<details>
+- **2025-05-15**
+    
+    ☑️ 어제 한일
+    
+    ---
+    
+    요구사항 명세서 작성하기
+    
+    🚀 오늘 할일(공통)
+    
+    ---
+    
+    - [x]  작성한 요구 사항 명세 검토
+    - [x]  github 이슈 발행
+    - [x]  피그마 와이어프레임(간단히 동작 순서만)
+    - [x]  프로젝트 생성 / 깃허브 업로드 / 기본 브랜치 dev로 변경
+    
+    🚀 오늘 할일(개인)
+    
+    ---
+    
+    - [x]  혜빈 : 게시글 모달 컴포넌트 구조 잡기
+    - [x]  현우 :  알림 페이지 레이아웃 설계
+    - [x]  정아 : 로그인 페이지 구현
+    - [x]  준서 : MainPage 레이아웃 설계 / 레이아웃용 스타일링 파일 추가 / 컴포넌트 더미 생성
+    - [x]  범석 : DM 목록 페이지
+    
+    ❌ 장애 요소
+    
+    ---
+    
+    - [ ]  
+    
+    🤔 질문
+    
+    ---
+    
+    - [x]  공통(푸터, 사이드바 등등)  역할 누가하는건지?  → 정아
+</details>
+<details>
+- **2025-05-16**
+    
+    
+    ☑️ 어제 한일
+    
+    ---
+    
+    - [x]  혜빈 : 게시글 모달창 구조 설계
+    - [x]  현우 : 알림 페이지 레이아웃 설계
+    - [x]  정아 : 로그인 페이지 90% 완료
+    - [x]  준서 : 레이아웃용 스타일링 파일 추가 / 컴포넌트 더미 생성
+    - [x]  범석 : DM 목록 페이지 설계
+    
+    🚀 오늘 할일(공통)
+    
+    ---
+    
+    - [x]  어제까지 한 작업 머지하고 작업시작하기
+    
+    🚀 오늘 할일(개인)
+    
+    ---
+    
+    - [ ]  혜빈 : 게시글 모달창 마무리
+    - [ ]  현우 : 알림 페이지 마무리
+    - [ ]  정아 : 로그인 페이지 마무리 및 푸터 구현, 회원가입 페이지 구현
+    - [ ]  준서 : MainPage 레이아웃 설계 마무리 / 게시물 카드 컴포넌트 설계
+    - [ ]  범석 : DM 목록 페이지 마무리 / 검색창 설계
+    
+    ❌ 장애 요소
+    
+    ---
+    
+    - [ ]  습한 날씨
+    - [ ]  약한 체력
+    
+    🤔 질문
+    
+    ---
+    
+    - [ ]  
+
+</details>
+<details>
+- **2025-05-18**
+    
+    ## 테스트 결과서 작성 여부(작성 완료시 체크)
+    
+    ---
+    
+    - 테스트케이스별로 관련 기능 no(요구사항명세 확인)도 함께 기재
+    - [x]  정아
+    - [ ]  준서
+    - [x]  혜빈
+    - [ ]  현우
+    - [x]  범석
+    
+    ## 진행 상황 공유
+    
+    ---
+    
+    - 미완성 페이지나 기능은 상세히 작성해주세요.
+    
+    **정아**
+    
+    - [x]  회원가입 페이지
+    - [x]  로그인 페이지
+    - [x]  푸터
+    
+    ❌ 미완성 페이지 or 기능, 장애요소 공유
+    
+    - 오늘 마무리 가능 O
+    
+    ```
+    - 회원가입, 로그인 페이지
+      - css 파일 분리
+      - 인스타 폰트 적용
+    ```
+    
+    ---
+    
+    **준서**
+    
+    - [x]  메인 페이지 네이게이션 바 및 피드창
+    
+    ❌ 미완성 페이지 or 기능, 장애요소 공유
+    
+    - 오늘 모두 마무리 가능 O
+    
+    ```
+    - 네비게이션 사이드바 마무리 (팔로우 -> 팔로잉 전환)
+    - 피드 댓글보기 -> 게시글 전체창 전환 
+    ```
+    
+    ---
+    
+    **혜빈**
+    
+    - [x]  프로필 페이지
+    - [x]  게시글 페이지
+    
+    ❌ 미완성 페이지 or 기능, 장애요소 공유
+    
+    ```
+    프로필 페이지
+    - 상당 프로필바 (UI 구현은 가능하나 클릭시 이벤트 발생은 마감 어려움..)
+    - 하단 게시물 리스트 (오늘 마감 가능)
+    - 하단 게시물 리스트에서 게시물 클릭 시 해당 게시글 모달창 띄우기 (오늘 마감 가능)
+    ```
+    
+    ---
+    
+    **현우**
+    
+    - [ ]  스토리 페이지
+    - [x]  알림 페이지
+    
+    ❌ 미완성 페이지 or 기능, 장애요소 공유
+    
+    ```
+    스토리 페이지 , 전역에 padding이 걸려있어서 스토리 페이지 검은 배경 밖으로 흰색 틀 생김
+    ```
+    
+    ---
+    
+    **범석**
+    
+    - [x]  DM 목록 페이지
+    - [ ]  검색 페이지
+    
+    ❌ 미완성 페이지 or 기능, 장애요소 공유
+    
+    ```
+    DM 목록 페이지 (마감)
+    -상대방 프로필로 넘어가는 부분은 생략해야될거같아요,,,
+    검색페이지 (아직 시작X)
+    ```
+    
+    ---
+
+</details>
+<details>
+- **2025-05-19**
+</details>
+
+## Git 브랜치 전략
+
+---
+
+### 1️⃣ 기능 브랜치 생성
+
+- **`dev` 브랜치에서 기능 브랜치 생성**
+- 생성 전 `dev` 최신 상태로 pull 필수
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+git checkout dev          # dev 브랜치로 이동
+git pull origin dev       # 최신 상태로 업데이트
+git checkout -b feature/기능명  # 기능 브랜치 생성
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📌 브랜치 네이밍 예시:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+`feature/login`, `fix/typo`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+### 2️⃣ Pull Request (PR) 생성
 
-To learn more about Next.js, take a look at the following resources:
+1. 작업 내용 커밋 & 푸시
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+git add .
+git commit -m "작업 내용"
+git push origin feature/기능명
+```
 
-## Deploy on Vercel
+1. GitHub에서 `dev` 브랜치로 PR 생성 
+    - 프로젝트 Repository > Pull requests > New pull request > Create pull request
+    - PR 설명에 `#이슈번호` 포함
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 3️⃣ 병합 및 후처리
+
+**✅ 기능 미완 (작업 이어갈 경우)** 
+
+```bash
+
+git checkout dev
+git pull origin dev 
+git checkout feature/기능명
+git merge dev  # dev 내용 반영 후 작업 계속
+
+# 라이브러리 업데이트
+npm update
+```
+
+**✅ 기능 완료 (브랜치 삭제)**
+
+```bash
+git checkout dev
+git pull origin dev
+
+# 로컬 삭제
+git branch -d feature/기능명
+
+# 원격 삭제
+git push origin --delete feature/기능명
+
+# 라이브러리 업데이트
+npm update
+```
+
+---
+
+### 4️⃣ 최종 배포 (main으로 병합)
+
+```bash
+
+git checkout main
+git pull origin main
+git merge dev
+git push origin main
+```
+
+---
+
+### 🗺️ 브랜치 흐름도
+
+```
+
+main ← dev ← feature/기능명
+         ↑
+    브랜치 생성 전 반드시 pull!
+         ↑
+      작업 완료 → PR & 병합
+         ↓
+     병합 완료 후 브랜치 삭제
+```
+
+## 네이밍 규칙
+
+---
+
+| **구분** | **네이밍 규칙** | **예시** |
+| --- | --- | --- |
+| **기능 폴더** | `kebab-case` | `auth` , `search-profile` |
+| **컴포넌트 폴더** | `components` (고정) | `auth/components/`, `posts/components/` |
+| **컴포넌트 파일** | `PascalCase` | `LoginForm.jsx`, `Footer.jsx` |
+| **페이지 파일** | `page.jsx` (고정) | `login/page.jsx`, `posts/page.jsx` |
+| **CSS 파일** | `snake_case` | `search_overlay.css`, `login_form.module.css` |
+| **이미지 파일** | `snake_case` | `auth_01.png`, `profile_default.jpeg` |
+
+## 폴더 규칙
+
+---
