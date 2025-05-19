@@ -1,17 +1,3 @@
-- [x]  프로젝트 개요
-- [ ]  요구사항정의서
-- [ ]  소스코드(main으로 프로젝트 옮기기)
-- [x]  SPA사이트(vercel 배포)
-    - [ ]  [https://velog.io/@zzangsubin/vercel-vercel로-github-웹-페이지-배포하기](https://velog.io/@zzangsubin/vercel-vercel%EB%A1%9C-github-%EC%9B%B9-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0)
-- [ ]  테스트케이스
-- [ ]  테스트결과서
-- [x]  깃브랜치전략
-- [x]  네이밍규칙
-- [ ]  폴더규칙
-    - [x]  css파일명 일관성있게 맞추기 (style.css  or 컴포넌트 이름(search_component.css)에 맞게 각자 변경)
-    - [x]  팀원별 수정필요 - 페이지, 컴포넌트 파일 업데이트
-- [x]  스크럼회의록작성, 진척률(마일스톤,이슈)
-
 ## 프로젝트 개요
 
 ---
