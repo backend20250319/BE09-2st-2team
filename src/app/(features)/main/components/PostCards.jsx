@@ -1,9 +1,18 @@
-// components/PostCard.jsx
 "use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
+
 const PostCard = ({ username, profileImgUrl, imgUrl, content }) => {
-  const commentCount = Math.floor(Math.random() * 1000) + 1; // 1~1000 사이 난수
-  const likeCount = Math.floor(Math.random() * 10000) + 1; // 1~10000 사이 난수
+  const [commentCount, setCommentCount] = useState(null);
+  const [likeCount, setLikeCount] = useState(null);
+
+  useEffect(() => {
+    // 클라이언트에서만 난수 생성
+    setCommentCount(Math.floor(Math.random() * 1000) + 1);
+    setLikeCount(Math.floor(Math.random() * 10000) + 1);
+  }, []);
+
   return (
     <div
       style={{
@@ -19,7 +28,7 @@ const PostCard = ({ username, profileImgUrl, imgUrl, content }) => {
           padding: "12px",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between", // ← 더보기 버튼 오른쪽 정렬용
+          justifyContent: "space-between",
         }}
       >
         {/* 왼쪽: 프로필 이미지 + 사용자 이름 */}
@@ -89,27 +98,30 @@ const PostCard = ({ username, profileImgUrl, imgUrl, content }) => {
       {/* 3. 액션 버튼 */}
       <div style={{ padding: "12px" }}>
         <div style={{ marginBottom: "4px" }}>❤️ 💬 ✈️</div>
-        <div style={{ fontWeight: "bold", marginBottom: "8px" }}>
-          좋아요 {likeCount}개
-        </div>
+        {likeCount !== null && (
+          <div style={{ fontWeight: "bold", marginBottom: "8px" }}>
+            좋아요 {likeCount}개
+          </div>
+        )}
         {/* 4. 본문 */}
         <div>
           <span style={{ fontWeight: "bold" }}>{username}</span> {content}
         </div>
-        {/* 5. 댓글 더 보기 */}
 
-        <Link href="/posts" style={{ textDecoration: "none" }}>
-          <div
-            style={{
-              color: "gray",
-              marginTop: "6px",
-              cursor: "pointer",
-            }}
-          >
-            댓글 {commentCount}개 모두 보기
-          </div>
-        </Link>
-        {/* 6. 댓글 입력창 (생략 가능) */}
+        {/* 5. 댓글 더 보기 */}
+        {commentCount !== null && (
+          <Link href="/posts" style={{ textDecoration: "none" }}>
+            <div
+              style={{
+                color: "gray",
+                marginTop: "6px",
+                cursor: "pointer",
+              }}
+            >
+              댓글 {commentCount}개 모두 보기
+            </div>
+          </Link>
+        )}
       </div>
     </div>
   );
