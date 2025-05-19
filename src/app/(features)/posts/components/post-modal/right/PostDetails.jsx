@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "./PostDetails.css";
+import "./post-details.css";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { LuSend } from "react-icons/lu";
 import { FaRegComment } from "react-icons/fa6";
