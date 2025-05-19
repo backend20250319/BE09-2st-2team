@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./PostImageSlider.css";import "../PostModal.css";
+import "./post-image-slider.css";
+import "../post-modal.css";
 
 const PostImageSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
