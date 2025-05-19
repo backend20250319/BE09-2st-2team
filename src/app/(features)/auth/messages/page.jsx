@@ -7,45 +7,52 @@ import DMView from "./components/DMView";
 const DMListPage = () => {
   const [chatRooms, setChatRooms] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedRoom, setSelectedRoom] = useState(null);
-
-  const btnRef = useRef();
+  const [selectedRoomId, setSelectedRoomId] = useState(null);
   const wrapRef = useRef();
 
+  const selectedRoom = chatRooms.find((r) => r.id === selectedRoomId);
+
   const handleStartChat = (user) => {
-    const existingRoom = chatRooms.find((room) => room.user.id === user.id);
-    if (existingRoom) {
-      setSelectedRoom(existingRoom);
+    const existing = chatRooms.find((r) => r.user.id === user.id);
+    if (existing) {
+      setSelectedRoomId(existing.id);
     } else {
       const newRoom = {
         id: Date.now(),
-        user,
+        user: {
+          id: user.id,
+          username: user.username,
+          avatar: user.profileImage, // ✅ 프로필 이미지 매핑
+        },
         messages: [],
       };
       setChatRooms((prev) => [...prev, newRoom]);
-      setSelectedRoom(newRoom);
+      setSelectedRoomId(newRoom.id);
     }
     setModalOpen(false);
   };
 
-  const handleSendMessage = (roomId, message) => {
-    setChatRooms((prevRooms) =>
-      prevRooms.map((room) =>
-        room.id === roomId
-          ? { ...room, messages: [...room.messages, { text: message }] }
-          : room
+  const handleSendMessage = (roomId, text) => {
+    setChatRooms((prev) =>
+      prev.map((r) =>
+        r.id === roomId
+          ? {
+              ...r,
+              messages: [...r.messages, { id: Date.now(), text, sender: "me" }],
+            }
+          : r
       )
     );
   };
 
   const handleLeaveChat = () => {
-    setSelectedRoom(null);
+    setSelectedRoomId(null);
   };
 
   const handleDeleteChat = (roomId) => {
-    setChatRooms((prevRooms) => prevRooms.filter((room) => room.id !== roomId));
+    setChatRooms((prev) => prev.filter((r) => r.id !== roomId));
     if (selectedRoom?.id === roomId) {
-      setSelectedRoom(null);
+      setSelectedRoomId(null);
     }
   };
 
@@ -53,119 +60,117 @@ const DMListPage = () => {
     <div className="wrap" ref={wrapRef}>
       {/* 왼쪽: DM 목록 */}
       <div className="dm-list">
-        <h1 style={{ marginTop: "80px" }}>메시지</h1>
-        {chatRooms.length === 0 ? (
-          <div
+        <div
+          style={{
+            marginTop: "80px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <h1 style={{ margin: 0 }}>메시지</h1>
+          <button
+            onClick={() => setModalOpen(true)}
             style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100vh",
+              background: "none",
+              border: "none",
+              padding: 0,
+              cursor: "pointer",
             }}
           >
+            <img
+              src="/images/messages/messages05.png"
+              alt="새 메시지"
+              style={{ width: 45, height: 35 }}
+            />
+          </button>
+        </div>
+
+        {chatRooms.length === 0 ? (
+          <div className="empty-list">
             <p>대화 목록이 없습니다.</p>
           </div>
         ) : (
           chatRooms.map((room) => (
             <div
               key={room.id}
+              className="dm-item"
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                padding: "10px",
-                cursor: "pointer",
-                borderBottom: "1px solid #ddd",
+                padding: "10px 0",
+                borderBottom: "1px solid #eee",
               }}
             >
-              <div onClick={() => setSelectedRoom(room)}>
-                <strong>{room.user.username}</strong>
-              </div>
-              <button
+              <div
+                onClick={() => setSelectedRoomId(room.id)}
                 style={{
-                  background: "none",
-                  border: "none",
-                  color: "red",
+                  display: "flex",
+                  alignItems: "center",
                   cursor: "pointer",
                 }}
-                onClick={() => handleDeleteChat(room.id)}
               >
-                삭제
-              </button>
+                <img
+                  src={room.user.avatar || "/images/profiles/default.png"}
+                  alt="프로필"
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                    marginRight: 10,
+                  }}
+                />
+                <strong>{room.user.username}</strong>
+              </div>
+              <button onClick={() => handleDeleteChat(room.id)}>삭제</button>
             </div>
           ))
         )}
       </div>
 
-      {/* 오른쪽: DM 창 또는 초기 메시지 화면 */}
-      <div className="dm-view">
+      {/* 오른쪽: DM View or 시작 화면 */}
+      <div className={`dm-view${selectedRoom ? " chat-mode" : ""}`}>
         {selectedRoom ? (
           <DMView
             room={selectedRoom}
             onSendMessage={handleSendMessage}
             onLeaveChat={handleLeaveChat}
+            onDeleteChat={handleDeleteChat}
           />
         ) : (
-          <>
+          <div className="dm-start" style={{ textAlign: "center", marginTop: "100px" }}>
             <img
               src="/images/messages/messages01.png"
               alt="Messenger Icon"
-              style={{
-                width: "100px",
-                height: "100px",
-                objectFit: "cover",
-              }}
+              style={{ width: 100, height: 100, objectFit: "cover", marginBottom: 20 }}
             />
-            <h2 style={{ marginBottom: "1px" }}>내 메시지</h2>
-            <p style={{ color: "#888", marginTop: "2px" }}>
+            <h2>내 메시지</h2>
+            <p style={{ color: "#888", marginBottom: 24 }}>
               친구나 그룹에 비공개 사진과 메시지를 보내보세요.
             </p>
             <button
+              className="primary-btn"
+              onClick={() => setModalOpen(true)}
               style={{
+                padding: "10px 20px",
                 backgroundColor: "#3399ff",
                 color: "white",
                 border: "none",
-                padding: "7px 16px",
-                borderRadius: "15px",
+                borderRadius: 6,
                 cursor: "pointer",
-                fontWeight: "bold",
               }}
-              onClick={() => setModalOpen(true)}
             >
               메시지 보내기
             </button>
-            <button
-              onClick={(e) => {
-                wrapRef.current.classList.remove('wrap');
-                wrapRef.current.classList.add('wrap2');
-                btnRef.current.classList?.remove("defcss");
-              }}
-            >
-              화면테스트
-            </button>
-          </>
+          </div>
         )}
-      </div>
-      <div className="defcss" ref={btnRef} style={{border:'1px solid black;'}}>
-        test
       </div>
 
       {/* 모달 */}
       {modalOpen && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: "rgba(0,0,0,0.3)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 1000,
-          }}
-        >
+        <div className="modal-backdrop">
           <NewMessageModal
             onClose={() => setModalOpen(false)}
             onStartChat={handleStartChat}
