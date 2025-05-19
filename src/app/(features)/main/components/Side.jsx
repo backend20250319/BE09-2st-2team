@@ -31,7 +31,7 @@ const SideMyProfile = () => (
   >
     <div style={{ width: "56px", height: "44px" }}>
       <img
-        src="/images/main/main1_1.jpg"
+        src="/images/profile/profile1.jpg"
         alt="profile"
         style={{ width: "44px", height: "44px", borderRadius: "50%" }}
       />
@@ -48,8 +48,8 @@ const SideMyProfile = () => (
       }}
     >
       <div>
-        <div style={{ fontWeight: "bold", fontSize: "14px" }}>user01</div>
-        <div style={{ fontSize: "14px", color: "gray" }}>김유저</div>
+        <div style={{ fontWeight: "bold", fontSize: "14px" }}>playdata.io</div>
+        <div style={{ fontSize: "14px", color: "gray" }}>플레이데이터</div>
       </div>
     </div>
     <div
