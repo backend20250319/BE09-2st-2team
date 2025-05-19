@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import SearchComponent from "../../search/components/SearchComponent";
-import NotificationPanel from "./NotificationPanel";
+import NotificationPanel from "../../notifications/components/NotificationPanel";
 
 const navItems = [
   { label: "홈", icon: "main2_3.svg", selectedIcon: "main1_3.svg" },
