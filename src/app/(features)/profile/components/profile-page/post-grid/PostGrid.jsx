@@ -1,5 +1,5 @@
 import React from "react";
-import "./PostGrid.css";
+import "./post-grid.css";
 
 const PostGrid = ({ posts, onImageClick }) => (
   <div className="post-grid">

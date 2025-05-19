@@ -1,7 +1,6 @@
 import React from "react";
-import "./ProfileHeader.css";
+import "./profile-header.css";
 import { RiLinkM } from "react-icons/ri";
-import { TbSettingsFilled } from "react-icons/tb";
 import { IoIosSettings } from "react-icons/io";
 
 const ProfileHeader = ({ user }) => (
@@ -17,7 +16,9 @@ const ProfileHeader = ({ user }) => (
       </div>
       <span className="right-header">
         <div className="row1">
-          <span className="user-name">{user.username}</span>
+          <span className="user-name" style={{ fontSize: 20, fontWeight: 400 }}>
+            {user.username}
+          </span>
           <button>프로필 편집</button>
           <button>보관된 스토리 보기기</button>
           <span className="settings">

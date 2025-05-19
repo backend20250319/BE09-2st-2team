@@ -3,7 +3,7 @@ import { GrGrid } from "react-icons/gr";
 import { BiMoviePlay } from "react-icons/bi";
 import { FaRegBookmark } from "react-icons/fa";
 import { LuSquareUser } from "react-icons/lu";
-import "./ProfileTaps.css";
+import "./profile-taps.css";
 
 const ProfileTabs = ({ activeTab, setActiveTab }) => (
   <div className="profile-tabs">
