@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function StoryLayout({ children }) {
   return (
-    <div>
+    <div className="story-body">
       <ClientWrapper />
       {children}
     </div>
