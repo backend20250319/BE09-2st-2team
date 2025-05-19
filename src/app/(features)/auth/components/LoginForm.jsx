@@ -208,7 +208,7 @@ export default function LoginForm() {
         }}
       >
         <img
-          src="/images/auth/facebooklogo.png"
+          src="/images/auth/facebook_logo.png"
           alt="Facebook 로그인"
           style={{ width: "16px", height: "16px", marginRight: "8px" }}
         />

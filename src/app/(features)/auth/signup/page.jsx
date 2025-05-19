@@ -230,7 +230,7 @@ export default function SignupPage() {
     <div style={containerStyle}>
       <div style={boxStyle}>
         <img
-          src="/images/auth/instalogo.png"
+          src="/images/auth/insta_logo.png"
           alt="인스타 로고"
           style={logoStyle}
         />
@@ -267,7 +267,7 @@ export default function SignupPage() {
             }}
           >
             <img
-              src="/images/auth/facebookicon.png"
+              src="/images/auth/facebook_icon.png"
               alt="Facebook 로그인"
               style={{
                 width: "16px",
@@ -334,8 +334,8 @@ export default function SignupPage() {
               <img
                 src={
                   errorEmailOrPhoneMessage && !focusEmailOrPhone
-                    ? "/images/auth/erroricon.png"
-                    : "/images/auth/successicon.png"
+                    ? "/images/auth/error_icon.png"
+                    : "/images/auth/success_icon.png"
                 }
                 alt={errorEmailOrPhoneMessage ? "error" : "success"}
                 style={{
@@ -411,8 +411,8 @@ export default function SignupPage() {
                   <img
                     src={
                       errorPasswordMessage && !focusPassword
-                        ? "/images/auth/erroricon.png"
-                        : "/images/auth/successicon.png"
+                        ? "/images/auth/error_icon.png"
+                        : "/images/auth/success_icon.png"
                     }
                     alt={errorPasswordMessage ? "error" : "success"}
                     style={{
@@ -491,8 +491,8 @@ export default function SignupPage() {
               <img
                 src={
                   errorFullNameMessage && !focusFullName
-                    ? "/images/auth/erroricon.png"
-                    : "/images/auth/successicon.png"
+                    ? "/images/auth/error_icon.png"
+                    : "/images/auth/success_icon.png"
                 }
                 alt={errorFullNameMessage ? "error" : "success"}
                 style={{
@@ -561,8 +561,8 @@ export default function SignupPage() {
               <img
                 src={
                   errorUsernameMessage && !focusUsername
-                    ? "/images/auth/erroricon.png"
-                    : "/images/auth/successicon.png"
+                    ? "/images/auth/error_icon.png"
+                    : "/images/auth/success_icon.png"
                 }
                 alt={errorUsernameMessage ? "error" : "success"}
                 style={{
@@ -673,7 +673,7 @@ export default function SignupPage() {
             rel="noopener noreferrer"
           >
             <img
-              src="/images/auth/googleplay.png" // Google Play 버튼 이미지
+              src="/images/auth/google_play.png" // Google Play 버튼 이미지
               alt="Google Play"
               style={{ height: "40px" }}
             />
