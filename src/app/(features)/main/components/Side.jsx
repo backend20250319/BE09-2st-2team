@@ -2,6 +2,8 @@
 "use client";
 import RecommendedUser from "./RecommendedUser";
 import recommendedUsers from "../data/UsersRecommended";
+import Link from "next/link";
+import ProfilePage from "../../profile/components/profile-page/ProfilePage";
 
 const Sidebar = ({ children }) => (
   <div style={{ width: "319px", paddingLeft: "64px" }}>{children}</div>
@@ -30,11 +32,14 @@ const SideMyProfile = () => (
     }}
   >
     <div style={{ width: "56px", height: "44px" }}>
-      <img
-        src="/images/profile/profile1.jpg"
-        alt="profile"
-        style={{ width: "44px", height: "44px", borderRadius: "50%" }}
-      />
+      {/* ✅ 여기: 프로필 사진 클릭 시 /profile로 이동 */}
+      <Link href="/profile">
+        <img
+          src="/images/profile/profile1.jpg"
+          alt="profile"
+          style={{ width: "44px", height: "44px", borderRadius: "50%" }}
+        />
+      </Link>
     </div>
     <div
       style={{
