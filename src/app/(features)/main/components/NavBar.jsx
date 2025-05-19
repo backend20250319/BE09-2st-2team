@@ -80,7 +80,7 @@ const Navbar = () => {
         padding: "8px 12px 20px 12px",
       }}
     >
-      <Link href="/">
+      <Link href="/main/pages">
         <img
           src="/images/main/main0.png"
           alt="Instagram 로고"
