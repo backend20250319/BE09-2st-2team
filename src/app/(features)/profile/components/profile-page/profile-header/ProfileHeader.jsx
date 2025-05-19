@@ -1,7 +1,6 @@
 import React from "react";
-import "./ProfileHeader.css";
+import "./profile-header.css";
 import { RiLinkM } from "react-icons/ri";
-import { TbSettingsFilled } from "react-icons/tb";
 import { IoIosSettings } from "react-icons/io";
 
 const ProfileHeader = ({ user }) => (
