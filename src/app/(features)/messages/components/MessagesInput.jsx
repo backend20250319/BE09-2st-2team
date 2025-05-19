@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 const users = [
-  { id: 1, username: "홍길동", profileImage: "/images/messages/messages02.png" },
-  { id: 2, username: "유관순", profileImage: "/images/messages/messages02.png" },
-  { id: 3, username: "손흥민", profileImage: "/images/messages/messages07.jpg" },
-  { id: 4, username: "이강인", profileImage: "/images/messages/messages08.jpg" },
-  { id: 5, username: "박지성", profileImage: "/images/messages/messages06.jpg" },
-  { id: 6, username: "안정환", profileImage: "/images/messages/messages02.png" },
-  { id: 7, username: "차은우", profileImage: "/images/messages/messages09.jpg" },
+  { id: 1, username: "홍길동", profileImage: "/images/messages/messages_02.png" },
+  { id: 2, username: "유관순", profileImage: "/images/messages/messages_02.png" },
+  { id: 3, username: "손흥민", profileImage: "/images/messages/messages_07.jpg" },
+  { id: 4, username: "이강인", profileImage: "/images/messages/messages_08.jpg" },
+  { id: 5, username: "박지성", profileImage: "/images/messages/messages_06.jpg" },
+  { id: 6, username: "안정환", profileImage: "/images/messages/messages_02.png" },
+  { id: 7, username: "차은우", profileImage: "/images/messages/messages_09.jpg" },
   // 더 추가 가능
 ];
 
