@@ -86,7 +86,7 @@ const PostCard = ({ username, profileImgUrl, imgUrl, content }) => {
         style={{ width: "100%", height: "auto", objectFit: "cover" }}
       />
 
-      {/* 3. 액션 버튼 (간단히 텍스트 처리) */}
+      {/* 3. 액션 버튼 */}
       <div style={{ padding: "12px" }}>
         <div style={{ marginBottom: "4px" }}>❤️ 💬 ✈️</div>
         <div style={{ fontWeight: "bold", marginBottom: "8px" }}>
