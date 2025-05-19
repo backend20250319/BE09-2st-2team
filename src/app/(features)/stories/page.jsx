@@ -1,6 +1,6 @@
 import Link from "next/link";
-import "./style.css";
-import { stories } from "./storiesinventory";
+import "./stories-style.css";
+import { stories } from "./StoriesInventory";
 
 export default function MainStory() {
   return (

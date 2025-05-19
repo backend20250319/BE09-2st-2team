@@ -1,5 +1,5 @@
 import ClientWrapper from "./ClientWrapper";
-import "./style.css";
+import "./stories-style.css";
 
 export const metadata = {
   title: "스토리 보기",
