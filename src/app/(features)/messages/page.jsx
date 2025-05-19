@@ -1,10 +1,12 @@
 "use client";
 import React, { useState, useRef } from "react";
+import { useRouter } from "next/navigation"; // ✅ 추가
 import "./page.css";
 import NewMessageModal from "./components/MessagesInput";
 import DMView from "./components/DMView";
 
 const DMListPage = () => {
+  const router = useRouter(); // ✅ 추가
   const [chatRooms, setChatRooms] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedRoomId, setSelectedRoomId] = useState(null);
@@ -22,7 +24,7 @@ const DMListPage = () => {
         user: {
           id: user.id,
           username: user.username,
-          avatar: user.profileImage, // ✅ 프로필 이미지 매핑
+          avatar: user.profileImage,
         },
         messages: [],
       };
@@ -60,9 +62,30 @@ const DMListPage = () => {
     <div className="wrap" ref={wrapRef}>
       {/* 왼쪽: DM 목록 */}
       <div className="dm-list">
+        {/* 👉 메인으로 버튼 (라우팅 추가) */}
+        <div style={{ padding: "0px 90px 0px", borderBottom: "1px solid #ddd" }}>
+          <button
+            onClick={() => router.push("/main/pages")} // ✅ 여기에 라우팅 적용
+            style={{
+              background: "none",
+              border: "none",
+              padding: 0,
+              cursor: "pointer",
+            }}
+          >
+            <img
+              src="/images/messages/messages10.png"
+              alt="메인으로"
+              style={{ width: 180, height: 80 }}
+            />
+          </button>
+        </div>
+
+        {/* 메시지 타이틀 + 새 메시지 버튼 */}
         <div
           style={{
-            marginTop: "80px",
+            marginTop: "8px",
+            padding: "0 12px",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -86,6 +109,7 @@ const DMListPage = () => {
           </button>
         </div>
 
+        {/* DM 목록 */}
         {chatRooms.length === 0 ? (
           <div className="empty-list">
             <p>대화 목록이 없습니다.</p>
@@ -99,7 +123,7 @@ const DMListPage = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                padding: "10px 0",
+                padding: "10px 12px",
                 borderBottom: "1px solid #eee",
               }}
             >
@@ -140,11 +164,19 @@ const DMListPage = () => {
             onDeleteChat={handleDeleteChat}
           />
         ) : (
-          <div className="dm-start" style={{ textAlign: "center", marginTop: "100px" }}>
+          <div
+            className="dm-start"
+            style={{ textAlign: "center", marginTop: "100px" }}
+          >
             <img
               src="/images/messages/messages01.png"
               alt="Messenger Icon"
-              style={{ width: 100, height: 100, objectFit: "cover", marginBottom: 20 }}
+              style={{
+                width: 100,
+                height: 100,
+                objectFit: "cover",
+                marginBottom: 20,
+              }}
             />
             <h2>내 메시지</h2>
             <p style={{ color: "#888", marginBottom: 24 }}>
