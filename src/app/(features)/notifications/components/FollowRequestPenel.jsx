@@ -27,40 +27,40 @@ export default function FollowRequestPanel({ onBack }) {
       </div>
       <FollowItem
         user="one_lastweek"
-        profile="/images/profile/profile1.jpg"
+        profile="/images/search/profile1.png"
         name="한주전"
       />
       <FollowItem
-        user="one_lastweek"
-        profile="/images/profile/profile1.jpg"
-        name="한주전"
+        user="Last_DanXXX"
+        profile="/images/search/profile2.png"
+        name="김대성"
       />
       <FollowItem
-        user="one_lastweek"
-        profile="/images/profile/profile1.jpg"
-        name="한주전"
+        user="One_punch_King99"
+        profile="/images/search/profile3.png"
+        name="랄프"
       />
       <FollowItem
-        user="one_lastweek"
-        profile="/images/profile/profile1.jpg"
-        name="한주전"
+        user="xxxidragon"
+        profile="/images/search/profile4.png"
+        name="인지용"
       />
       <h4 style={{ marginLeft: "20px" }}>회원님을 위한 추천</h4>
       <FollowItem
-        user="one_lastweek"
-        profile="/images/profile/profile1.jpg"
+        user="kikwan_seol"
+        profile="/images/search/profile5.png"
         recomend="1"
       />
       <FollowItem
-        user="one_lastweek"
-        profile="/images/profile/profile1.jpg"
-        name="한주전"
+        user="Cute_Princess"
+        profile="/images/search/profile6.png"
+        name=""
         recomend="1"
       />
       <FollowItem
-        user="one_lastweek"
-        profile="/images/profile/profile1.jpg"
-        name="한주전"
+        user="It's_Me"
+        profile="/images/search/profile7.png"
+        name="미친존재감"
         recomend="1"
         btmmessage={"@@@님외 4명이 팔로우 "}
       />

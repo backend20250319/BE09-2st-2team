@@ -5,7 +5,7 @@ export default function BackButton({ onClick }) {
   return (
     <>
       <img
-        src="/images/noti/arrowleft.png"
+        src="/images/noti/arrow_left.png"
         style={{
           width: "22px",
           borderRadius: "50%",
