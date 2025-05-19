@@ -6,7 +6,7 @@ import MainStoryTop from "../components/MainStoryTop";
 import StoryFooter from "../components/StoryFooter";
 import StoryMedia from "../components/StoryMedia";
 import StoryProgressBar from "../components/StoryProgressBar";
-import { stories } from "../StoriesInventory";
+import { stories } from "../InventoryStories";
 import { useRouter } from "next/navigation";
 
 export default function StoryViewer({ params }) {
