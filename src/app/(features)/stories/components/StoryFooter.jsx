@@ -1,3 +1,5 @@
+import { CiHeart } from "react-icons/ci";
+
 export default function StoryFooter({ user }) {
   return (
     <div className="story-footer-container">
@@ -6,7 +8,7 @@ export default function StoryFooter({ user }) {
         type="text"
         placeholder={`${user}님에게 답장하기 ...`}
       />
-      <img src="/images/noti/heart.svg" />
+      <CiHeart style={{ width: "24px", height: "24px" }} />
       <img src="/images/noti/send.svg" />
     </div>
   );
