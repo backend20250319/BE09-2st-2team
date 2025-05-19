@@ -32,7 +32,8 @@ export default function StoryViewer({ params }) {
       )}
       {prevUser && (
         <div className="story-preview-thumbnail left">
-          <img src={prevUser.story} alt="Prev" />
+          <img src={prevUser.profile} className="story-avatar" />
+          <img src={prevUser.story} className="story-bg" />
         </div>
       )}
 
