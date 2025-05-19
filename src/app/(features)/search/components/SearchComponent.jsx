@@ -1,10 +1,18 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-
 import "./style.css";
 
-export default function SearchComponent() {
+export default function SearchComponent({ onClose }) {
+  const [query, setQuery] = useState("");
+  const [history, setHistory] = useState([]);
+  const inputRef = useRef(null);
+  const [isFocused, setIsFocused] = useState(true);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
   const profiles = [
     {
       img: "/images/search/profile1.png",
@@ -58,32 +66,14 @@ export default function SearchComponent() {
     },
   ];
 
-  const [query, setQuery] = useState("");
-  const [history, setHistory] = useState([]);
+  const handleChange = (e) => setQuery(e.target.value);
 
-  const inputRef = useRef(null);
-  const [isFocused, setIsFocused] = useState(true);
-
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
-
-
-  const handleChange = (e) => {
-    const value = e.target.value;
-    setQuery(value);
-  };
-
-  // 클릭된 프로필을 최근 검색에 추가하는 함수
   const handleProfileClick = (profile) => {
-    console.log(profile.userName);
-    // history에 동일 userName 프로필이 없으면 추가
     if (!history.some((p) => p.userName === profile.userName)) {
       setHistory([profile, ...history]);
     }
   };
 
-  // 검색어에 맞는 프로필 필터링 (userName or fullName 포함하면 표시)
   const filteredProfiles = profiles.filter(
     ({ userName, fullName }) =>
       query &&
@@ -92,72 +82,136 @@ export default function SearchComponent() {
   );
 
   return (
-    <div className="main-box">
-      <div className="search-box">
-        <h2 className="search-title">검색</h2>
-        <div className="search-bar">
-          {!isFocused && query === "" && (
-            <img
-              src="/images/search/searchicon.png"
-              alt="검색 아이콘"
-              className="search-icon"
-              width={14}
-              height={14}
-              draggable={false}
-            />
-          )}
-          <input
-            type="text"
-            placeholder="검색"
-            value={query}
-            onChange={handleChange}
-            className="search-input"
-            style={{ paddingLeft: !isFocused && query === "" ? "36px" : "16px" }}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-            ref={inputRef}
-          />
-          {isFocused && (
-            <button
-              className="clear-button"
-              onMouseDown={(e) => {
-                e.preventDefault();
-                setQuery("");
-                inputRef.current?.blur(); // 포커스 해제
-              }}
-            >
+    <>
+      {/* ✖ 닫기 버튼 */}
+      <button
+        onClick={onClose}
+        style={{
+          position: "fixed",
+          top: 10,
+          right: 10,
+          zIndex: 1100,
+          border: "none",
+          background: "none",
+          fontSize: "20px",
+          cursor: "pointer",
+        }}
+      >
+        ✖
+      </button>
+
+      {/* ✅ 검색 슬라이드 */}
+      <div
+        className="main-box"
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 244,
+          width: 400,
+          height: "100vh",
+          backgroundColor: "#fff",
+          zIndex: 1000,
+          boxShadow: "2px 0 8px rgba(0,0,0,0.1)",
+          overflowY: "auto",
+          pointerEvents: "auto",
+          margin: 0,
+          paddingTop: 0,
+        }}
+      >
+        <div className="search-box" style={{ paddingTop: "20px" }}>
+          <h2 className="search-title">검색</h2>
+          <div className="search-bar">
+            {!isFocused && query === "" && (
               <img
-                src="/images/search/xicon.png"
-                alt="clear"
-                width={15}
-                height={15}
+                src="/images/search/searchicon.png"
+                alt="검색 아이콘"
+                className="search-icon"
+                width={14}
+                height={14}
                 draggable={false}
               />
-            </button>
-          )}
-        </div>
-        <hr />
-      </div>
-
-      <div className="search-list">
-        {!query && (
-          <div className="recent-search">
-            <h4>최근 검색 항목</h4>
-            {history.length > 0 && (
-              <span onClick={() => setHistory([])}>모두 지우기</span>
+            )}
+            <input
+              type="text"
+              placeholder="검색"
+              value={query}
+              onChange={handleChange}
+              className="search-input"
+              style={{
+                paddingLeft: !isFocused && query === "" ? "36px" : "16px",
+              }}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
+              ref={inputRef}
+            />
+            {isFocused && (
+              <button
+                className="clear-button"
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  setQuery("");
+                  inputRef.current?.blur();
+                }}
+              >
+                <img
+                  src="/images/search/xicon.png"
+                  alt="clear"
+                  width={15}
+                  height={15}
+                  draggable={false}
+                />
+              </button>
             )}
           </div>
-        )}
-        {query ? (
-          filteredProfiles.length > 0 ? (
+          <hr />
+        </div>
+
+        <div className="search-list">
+          {!query && (
+            <div className="recent-search">
+              <h4>최근 검색 항목</h4>
+              {history.length > 0 && (
+                <span onClick={() => setHistory([])}>모두 지우기</span>
+              )}
+            </div>
+          )}
+          {query ? (
+            filteredProfiles.length > 0 ? (
+              <div className="profile-box">
+                {filteredProfiles.map((profile, idx) => (
+                  <div
+                    key={idx}
+                    className="profile"
+                    onClick={() => handleProfileClick(profile)}
+                  >
+                    <img
+                      className="profile-img"
+                      src={profile.img}
+                      alt={`${profile.userName} 프로필사진`}
+                    />
+                    <div className="profile-info">
+                      <div>
+                        <span className="user-name">{profile.userName}</span>
+                      </div>
+                      <div>
+                        <span className="full-name">{profile.fullName}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="no-history-box">
+                <p className="no-history">검색 결과가 없습니다.</p>
+              </div>
+            )
+          ) : history.length > 0 ? (
             <div className="profile-box">
-              {filteredProfiles.map((profile, idx) => (
+              {history.map((profile, idx) => (
                 <div
                   key={idx}
                   className="profile"
-                  onClick={() => {
-                    handleProfileClick(profile);
-                  }}
+                  onClick={() => handleProfileClick(profile)}
                 >
                   <img
                     className="profile-img"
@@ -177,41 +231,11 @@ export default function SearchComponent() {
             </div>
           ) : (
             <div className="no-history-box">
-              <p className="no-history">검색 결과가 없습니다.</p>
+              <p className="no-history">최근 검색 항목이 없습니다.</p>
             </div>
-          )
-        ) : history.length > 0 ? (
-          <div className="profile-box">
-            {history.map((profile, idx) => (
-              <div
-                key={idx}
-                className="profile"
-                onClick={() => {
-                  handleProfileClick(profile);
-                }}
-              >
-                <img
-                  className="profile-img"
-                  src={profile.img}
-                  alt={`${profile.userName} 프로필사진`}
-                />
-                <div className="profile-info">
-                  <div>
-                    <span className="user-name">{profile.userName}</span>
-                  </div>
-                  <div>
-                    <span className="full-name">{profile.fullName}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="no-history-box">
-            <p className="no-history">최근 검색 항목이 없습니다.</p>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
