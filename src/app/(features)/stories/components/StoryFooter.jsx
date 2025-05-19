@@ -1,6 +1,12 @@
-import { CiHeart } from "react-icons/ci";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { useState } from "react";
+import { LuSend } from "react-icons/lu";
 
 export default function StoryFooter({ user }) {
+  const [liked, setLiked] = useState(false);
+  const handleToggle = () => {
+    setLiked((prev) => !prev);
+  };
   return (
     <div className="story-footer-container">
       <input
@@ -8,8 +14,17 @@ export default function StoryFooter({ user }) {
         type="text"
         placeholder={`${user}님에게 답장하기 ...`}
       />
-      <CiHeart style={{ width: "24px", height: "24px" }} />
-      <img src="/images/noti/send.svg" />
+      <button
+        className={`action-btn like-btn ${liked ? "liked" : ""}`}
+        onClick={handleToggle}
+      >
+        {liked ? (
+          <FaHeart className="heart-icon liked" />
+        ) : (
+          <FaRegHeart className="heart-icon" />
+        )}
+      </button>
+      <LuSend style={{ width: "22PX", height: "22PX" }} />
     </div>
   );
 }
