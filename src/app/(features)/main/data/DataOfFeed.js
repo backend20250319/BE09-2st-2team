@@ -49,7 +49,7 @@ const FeedData = [
   {
     username: "prince_OH",
     profileImgUrl: "/images/main/main1_1.jpg",
-    imgUrl: "/images/post/post1/post2_1.jpg",
+    imgUrl: "/images/post/post2/post2_1.jpg",
 
     content: "만나서 반갑습니다. 엘지 오지환입니다.",
   },

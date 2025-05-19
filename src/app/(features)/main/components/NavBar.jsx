@@ -54,7 +54,11 @@ const Navbar = () => {
       setIsSearchOpen(false);
       setIsNotificationOpen(false);
       setActive(item.label);
-
+      // ✅ 여기 추가
+      if (item.label === "홈") {
+        router.push("/main/pages");
+        return;
+      }
       if (item.label === "메시지") {
         router.push("../../messages");
       }
