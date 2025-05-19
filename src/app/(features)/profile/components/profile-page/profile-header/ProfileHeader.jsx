@@ -8,7 +8,12 @@ const ProfileHeader = ({ user }) => (
   <div className="profile-header">
     <div className="header-top">
       <div className="left-header">
-        <img src={user.avatar} alt="프로필 사진" className="avatar" />
+        <img
+          src={user.avatar}
+          alt="프로필 사진"
+          className="avatar"
+          style={{ width: 150, height: 150 }}
+        />
       </div>
       <span className="right-header">
         <div className="row1">

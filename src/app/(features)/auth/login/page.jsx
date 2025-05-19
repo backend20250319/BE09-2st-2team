@@ -1,7 +1,26 @@
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import LoginForm from "../components/LoginForm";
 
 export default function LoginPage() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // 브라우저 너비 확인 후 상태 업데이트
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 900);
+    };
+
+    // 초기 실행 + 리사이즈 이벤트 등록
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    // 컴포넌트 언마운트 시 이벤트 제거
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const containerStyle = {
     display: "flex",
     justifyContent: "center",
@@ -60,13 +79,15 @@ export default function LoginPage() {
 
   return (
     <div style={containerStyle}>
-      <div style={leftBoxStyle}>
-        <img
-          src="/images/auth/loginimage.png"
-          alt="로그인 사진"
-          style={imageStyle}
-        />
-      </div>
+      {!isMobile && (
+        <div style={leftBoxStyle}>
+          <img
+            src="/images/auth/loginimage.png"
+            alt="로그인 사진"
+            style={imageStyle}
+          />
+        </div>
+      )}
 
       <div style={rightBoxStyle}>
         <img
