@@ -6,7 +6,7 @@ import MainStoryTop from "../components/MainStoryTop";
 import StoryFooter from "../components/StoryFooter";
 import StoryMedia from "../components/StoryMedia";
 import StoryProgressBar from "../components/StoryProgressBar";
-import { stories } from "../storiesinventory";
+import { stories } from "../StoriesInventory";
 import { useRouter } from "next/navigation";
 
 export default function StoryViewer({ params }) {
@@ -49,7 +49,6 @@ export default function StoryViewer({ params }) {
               alt="profile"
             />
           </div>
-          <div className="preview-username">{prevUser2.username}</div>
         </div>
       )}
       {prevUser && (
@@ -73,7 +72,7 @@ export default function StoryViewer({ params }) {
             profile={userData.profile}
             time={userData.time}
           />
-          <StoryMedia story="/images/story/story1.jpg" />
+          <StoryMedia story={userData.story} />
           <StoryFooter user={username} />
         </div>
       </div>
