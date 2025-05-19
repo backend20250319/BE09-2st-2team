@@ -7,13 +7,25 @@
   display: flex;
 }
 
+.left-header {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .avatar {
-  width: 150px;
-  height: 150px;
+  width: 100%; /* 또는 원하는 크기 (예: 100px) */
+  height: 100%;
   border-radius: 50%;
-  object-fit: cover;
   border: 1.5px solid #ddd;
-  margin: 0 50 0 0;
+  object-fit: cover;
+}
+
+.right-header {
+  padding: 0 50 0 10;
+  margin-left: 20;
 }
 
 .row1 {
@@ -40,8 +52,6 @@
 .row1 button:hover {
   background-color: #ccc; /* 마우스 올리면 조금 밝아짐 */
 }
-
-
 
 .user-details {
   color: grey;

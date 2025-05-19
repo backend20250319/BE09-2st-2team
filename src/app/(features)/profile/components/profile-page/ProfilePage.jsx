@@ -3,6 +3,7 @@ import ProfileHeader from "./profile-header/ProfileHeader";
 import ProfileTabs from "./profile-tabs/ProfileTabs";
 import PostGrid from "./post-grid/PostGrid";
 import PostModal from "@/app/(features)/posts/components/post-modal/PostModal";
+import { POSTS } from "@/data/POSTS";
 
 const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState("posts");
@@ -17,14 +18,12 @@ const ProfilePage = () => {
     description: "플레이데이터",
   };
 
-  const posts = [
-    { id: 1, imageUrl: "/images/profile/post/post1.jpg" },
-    { id: 2, imageUrl: "/images/profile/post/post2.jpg" },
-    { id: 3, imageUrl: "/images/profile/post/post3.jpg" },
-    { id: 4, imageUrl: "/images/profile/post/post4.jpg" },
-    { id: 5, imageUrl: "/images/profile/post/post5.jpg" },
-    { id: 6, imageUrl: "/images/profile/post/post6.jpg" },
-  ];
+  // posts 상수 대신 POSTS 사용, images 배열 첫번째 이미지를 imageUrl로 매핑
+  const posts = POSTS.map((post) => ({
+    id: post.id,
+    imageUrl: post.images[0], // 첫번째 이미지
+    ...post, // 필요하면 다른 정보도 포함 가능
+  }));
 
   return (
     <div className="profile-page">
