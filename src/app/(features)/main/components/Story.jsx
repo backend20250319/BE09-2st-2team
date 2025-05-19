@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import storyUsers from "../data/storyUsers";
+import storyUsers from "../data/UsersStory";
 
 const StoryBar = ({ children }) => (
   <div

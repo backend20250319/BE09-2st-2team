@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import "./style.css";
+import "./search-component.css";
 
 export default function SearchComponent({ onClose }) {
   const [query, setQuery] = useState("");
@@ -123,7 +123,7 @@ export default function SearchComponent({ onClose }) {
           <div className="search-bar">
             {!isFocused && query === "" && (
               <img
-                src="/images/search/searchicon.png"
+                src="/images/search/search_icon.png"
                 alt="검색 아이콘"
                 className="search-icon"
                 width={14}
@@ -154,7 +154,7 @@ export default function SearchComponent({ onClose }) {
                 }}
               >
                 <img
-                  src="/images/search/xicon.png"
+                  src="/images/search/clear_icon.png"
                   alt="clear"
                   width={15}
                   height={15}

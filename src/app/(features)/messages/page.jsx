@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import { useRouter } from "next/navigation"; // ✅ 추가
 import "./page.css";
 import NewMessageModal from "./components/MessagesInput";
-import DMView from "./components/DMView";
+import DMView from "./components/DmView";
 
 const DMListPage = () => {
   const router = useRouter(); // ✅ 추가
@@ -74,7 +74,7 @@ const DMListPage = () => {
             }}
           >
             <img
-              src="/images/messages/messages10.png"
+              src="/images/messages/messages_10.png"
               alt="메인으로"
               style={{ width: 180, height: 80 }}
             />
@@ -102,7 +102,7 @@ const DMListPage = () => {
             }}
           >
             <img
-              src="/images/messages/messages05.png"
+              src="/images/messages/messages_05.png"
               alt="새 메시지"
               style={{ width: 45, height: 35 }}
             />
@@ -169,7 +169,7 @@ const DMListPage = () => {
             style={{ textAlign: "center", marginTop: "100px" }}
           >
             <img
-              src="/images/messages/messages01.png"
+              src="/images/messages/messages_01.png"
               alt="Messenger Icon"
               style={{
                 width: 100,

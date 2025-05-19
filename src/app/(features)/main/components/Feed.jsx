@@ -1,7 +1,6 @@
 // components/Feed.jsx
 import PostCard from "./PostCards";
-import feedData from "../data/feedData";
-
+import feedData from "../data/DataOfFeed";
 const Feed = () => {
   return (
     <div style={{ backgroundColor: "rgb(255,255,255)" }}>

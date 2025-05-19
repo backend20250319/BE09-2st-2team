@@ -1,5 +1,5 @@
 import ClientWrapper from "./ClientWrapper";
-import "./style.css";
+import "./stories-style.css";
 
 export const metadata = {
   title: "스토리 보기",
@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function StoryLayout({ children }) {
   return (
-    <div>
+    <div className="story-body">
       <ClientWrapper />
       {children}
     </div>

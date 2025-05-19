@@ -113,8 +113,8 @@ const DMView = ({ room, onSendMessage, onLeaveChat, onDeleteChat }) => {
               <img
                 src={
                   isSettingOn
-                    ? "/images/messages/messages04.png"
-                    : "/images/messages/messages03.png"
+                    ? "/images/messages/messages_04.png"
+                    : "/images/messages/messages_03.png"
                 }
                 alt={isSettingOn ? "설정 ON" : "설정 OFF"}
                 style={{ width: 30, height: 30 }}

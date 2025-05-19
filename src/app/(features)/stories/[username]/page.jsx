@@ -6,7 +6,7 @@ import MainStoryTop from "../components/MainStoryTop";
 import StoryFooter from "../components/StoryFooter";
 import StoryMedia from "../components/StoryMedia";
 import StoryProgressBar from "../components/StoryProgressBar";
-import { stories } from "../storiesinventory";
+import { stories } from "../InventoryStories";
 import { useRouter } from "next/navigation";
 
 export default function StoryViewer({ params }) {
@@ -24,16 +24,43 @@ export default function StoryViewer({ params }) {
   const router = useRouter();
   return (
     <div className="story-dark-bg">
+      <div className="story-header">
+        <img
+          src="/images/noti/insta_logo.svg"
+          alt="Instagram"
+          className="instagram-logo"
+          style={{ height: "40px" }}
+        />
+        <button
+          className="close-button"
+          onClick={() => router.push("/main/pages")}
+        >
+          ×
+        </button>
+      </div>
       {/* 왼쪽 썸네일 */}
       {prevUser2 && (
         <div className="story-preview-thumbnail left2">
-          <img src={prevUser2.story} alt="Prev" />
+          <img src={prevUser2.story} />
+          <div className="preview-ring">
+            <img
+              className="preview-avatar"
+              src={prevUser2.profile}
+              alt="profile"
+            />
+          </div>
         </div>
       )}
       {prevUser && (
         <div className="story-preview-thumbnail left">
-          <img src={prevUser.profile} className="story-avatar" />
-          <img src={prevUser.story} className="story-bg" />
+          <img src={prevUser.story} />
+          <div className="preview-ring">
+            <img
+              className="preview-avatar"
+              src={prevUser.profile}
+              alt="profile"
+            />
+          </div>
         </div>
       )}
 
@@ -45,19 +72,33 @@ export default function StoryViewer({ params }) {
             profile={userData.profile}
             time={userData.time}
           />
-          <StoryMedia story="/images/story/story1.jpg" />
+          <StoryMedia story={userData.story} />
           <StoryFooter user={username} />
         </div>
       </div>
       {/* 오른쪽 썸네일 */}
       {overUser && (
         <div className="story-preview-thumbnail right">
-          <img src={overUser.story} alt="Next" />
+          <img src={overUser.story} />
+          <div className="preview-ring">
+            <img
+              className="preview-avatar"
+              src={overUser.profile}
+              alt="profile"
+            />
+          </div>
         </div>
       )}
       {overUser2 && (
         <div className="story-preview-thumbnail right2">
-          <img src={overUser2.story} alt="Next" />
+          <img src={overUser2.story} />
+          <div className="preview-ring">
+            <img
+              className="preview-avatar"
+              src={overUser2.profile}
+              alt="profile"
+            />
+          </div>
         </div>
       )}
       <div className="story-side-thumbnail right" />

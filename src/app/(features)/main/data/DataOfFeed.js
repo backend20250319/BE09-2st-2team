@@ -1,10 +1,10 @@
 // components/feedData.js
 
-const feedData = [
+const FeedData = [
   {
     username: "juns2o",
     profileImgUrl: "/images/main/main1_1.jpg",
-    imgUrl: "/images/feed/feed1/feed1_1.jpg",
+    imgUrl: "/images/post/post1/post1_1.jpg",
     content: "안녕하세요, 박준서입니다.",
   },
   {
@@ -63,4 +63,4 @@ const feedData = [
   },
 ];
 
-export default feedData;
+export default FeedData;

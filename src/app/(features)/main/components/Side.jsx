@@ -1,7 +1,7 @@
 // components/Sidebar.jsx
 "use client";
 import RecommendedUser from "./RecommendedUser";
-import recommendedUsers from "../data/recommendedUsers";
+import recommendedUsers from "../data/UsersRecommended";
 
 const Sidebar = ({ children }) => (
   <div style={{ width: "319px", paddingLeft: "64px" }}>{children}</div>

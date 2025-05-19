@@ -82,7 +82,7 @@ export default function LoginPage() {
       {!isMobile && (
         <div style={leftBoxStyle}>
           <img
-            src="/images/auth/loginimage.png"
+            src="/images/auth/login_image.png"
             alt="로그인 사진"
             style={imageStyle}
           />
@@ -91,7 +91,7 @@ export default function LoginPage() {
 
       <div style={rightBoxStyle}>
         <img
-          src="/images/auth/instalogo.png"
+          src="/images/auth/insta_logo.png"
           alt="인스타 로고"
           style={logoStyle}
         />

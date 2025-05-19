@@ -1,16 +1,25 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import Footer from "../components/Footer";
 
-export const metadata = {
-  title: "My Next.js App",
-  description: "Next.js 13 App Directory 예제",
-};
-
 export default function RootLayout({ children }) {
+  const pathname = usePathname();
+  const isStoryPage = pathname.startsWith("/stories/");
+
   return (
     <html lang="ko">
       <body style={{ fontFamily: "Arial, sans-serif", margin: 0, padding: 0 }}>
-        <main style={{ minHeight: "80vh", padding: "20px" }}>{children}</main>
-        <Footer />
+        <main
+          className="story-main"
+          style={{
+            minHeight: "80vh",
+            padding: isStoryPage ? "0" : "20px",
+          }}
+        >
+          {children}
+        </main>
+        {!isStoryPage && <Footer />}
       </body>
     </html>
   );
