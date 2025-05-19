@@ -20,7 +20,7 @@ export default function FollowRequest({ user, count, profile, onClick }) {
         style={{ marginLeft: "100px", marginRight: "12px" }}
       />
       <img
-        src="/images/noti/arrowright.png"
+        src="/images/noti/arrow_right.png"
         style={{ width: "15px", height: "15px" }}
       />
     </div>

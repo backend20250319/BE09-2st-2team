@@ -40,8 +40,8 @@ export default function NotificationPanel({ isOpen, onClose }) {
 
         <FollowRequest
           user="one_lastweek"
-          count={3}
-          profile="/images/profile/profile1.jpg"
+          count={4}
+          profile="/images/search/profile1.png"
           onClick={() => setPanel("followRequest")}
         />
 
@@ -49,12 +49,19 @@ export default function NotificationPanel({ isOpen, onClose }) {
 
         <NotificationSection title="이번 달">
           <NotificationItem
-            user1="cooling_0"
-            user2="no.yoonseok"
+            user1="maestro_guy"
+            user2="xxxIDragon"
             message="님이 회원님의 스토리를 좋아합니다."
-            profile="/images/noti/id1profile.jpg"
-            preview="/images/story/story1.jpg"
-            time="1주"
+            profile="/images/search/profile9.png"
+            preview="/images/noti/story_1.jpg"
+            time="1일"
+          />
+          <NotificationItem
+            user1="GaMyunRider"
+            message="님이 회원님의 스토리를 좋아합니다."
+            profile="/images/search/profile7.png"
+            preview="/images/noti/story_1.jpg"
+            time="3일"
           />
         </NotificationSection>
 
@@ -62,10 +69,38 @@ export default function NotificationPanel({ isOpen, onClose }) {
 
         <NotificationSection title="이전 활동">
           <NotificationItem
-            user1="no.yoonseok"
+            user1="Mr.s Simple"
             message="님이 회원님의 스토리를 좋아합니다."
-            profile="/images/noti/id2profile.jpg"
-            preview="/images/story/story2.jpg"
+            profile="/images/search/profile3.png"
+            preview="/images/noti/story_5.jpeg"
+            time="1주"
+          />
+          <NotificationItem
+            user1="Digimon"
+            message="님이 회원님의 스토리를 좋아합니다."
+            profile="/images/search/profile4.png"
+            preview="/images/noti/story_6.jpeg"
+            time="2주"
+          />
+          <NotificationItem
+            user1="PocketMon"
+            message="님이 회원님의 스토리를 좋아합니다."
+            profile="/images/search/profile6.png"
+            preview="/images/noti/story_4.jpeg"
+            time="3주"
+          />
+          <NotificationItem
+            user1="Goyunjeong"
+            message="님이 회원님의 스토리를 좋아합니다."
+            profile="/images/search/profile3.png"
+            preview="/images/search/profile6.png"
+            time="4주"
+          />
+          <NotificationItem
+            user1="Mr.s Sexyguy"
+            message="님이 회원님의 스토리를 좋아합니다."
+            profile="/images/search/profile3.png"
+            preview="/images/search/profile6.png"
             time="2주"
           />
         </NotificationSection>
