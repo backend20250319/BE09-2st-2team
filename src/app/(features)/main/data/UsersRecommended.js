@@ -12,7 +12,7 @@ const recommendedUsers = [
   {
     username: "nowon_seoul",
     description: "dhqjdnjcl_123님이 팔로우합니다",
-    img: "/images/feed/feed1/feed1_1.jpg",
+    img: "/images/feed/feed2/feed2_1.jpg",
   },
   {
     username: "harry_Potter",

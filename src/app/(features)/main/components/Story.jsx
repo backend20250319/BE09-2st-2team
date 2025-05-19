@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // ✅ 여기 추가
 import storyUsers from "../data/UsersStory";
 
 const StoryBar = ({ children }) => (
@@ -79,12 +80,14 @@ const Stories = () => {
   const [seenStories, setSeenStories] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
   const itemsPerPage = 8;
+  const router = useRouter(); // ✅ 추가
 
   const handleStoryClick = (username) => {
     if (!seenStories.includes(username)) {
       setSeenStories([...seenStories, username]);
     }
     console.log(`"${username}" 스토리 클릭됨`);
+    router.push(`/stories/${username}`); // ✅ 페이지 이동
   };
 
   const handlePrev = () => {
