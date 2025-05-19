@@ -11,7 +11,8 @@
 - **사이트명**: 인스타그램
 - **주소**: https://www.instagram.com/
 
-![image.png](https://file.notion.so/f/f/6565ce97-1b64-4478-9758-8bdfc0b92620/b89c7404-414b-448d-8afe-c41bd0dd3d24/image.png?table=block&id=1f8a02b1-ffb1-8080-b698-ff9ba56595a6&spaceId=6565ce97-1b64-4478-9758-8bdfc0b92620&expirationTimestamp=1747699200000&signature=hQ3Cj_zede2_lTBGy-wXkKdyPNa0gdYBOC7Hwjuc9TY&downloadName=image.png)
+![image](https://github.com/user-attachments/assets/ebb9a0af-71c2-48c4-bfa7-ce41ff782bcc)
+
 
 **📄 클론 페이지**
 
