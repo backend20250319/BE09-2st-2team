@@ -16,7 +16,9 @@ const ProfileHeader = ({ user }) => (
       </div>
       <span className="right-header">
         <div className="row1">
-          <span className="user-name">{user.username}</span>
+          <span className="user-name" style={{ fontSize: 20, fontWeight: 400 }}>
+            {user.username}
+          </span>
           <button>프로필 편집</button>
           <button>보관된 스토리 보기기</button>
           <span className="settings">
