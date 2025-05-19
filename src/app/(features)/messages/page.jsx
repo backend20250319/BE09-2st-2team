@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import { useRouter } from "next/navigation"; // ✅ 추가
 import "./page.css";
 import NewMessageModal from "./components/MessagesInput";
-import DMView from "./components/sdlkga";
+import DMView from "./components/DmView";
 
 const DMListPage = () => {
   const router = useRouter(); // ✅ 추가
