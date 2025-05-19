@@ -1,16 +1,11 @@
 "use client";
-// components/FollowRequeste.jsx
-import { useRouter } from "next/navigation";
 
-export default function FollowRequest({ user, count, profile }) {
-  const router = useRouter();
-  const handleClick = () => {
-    router.push("/notifications/noti");
-  };
+// components/FollowRequeste.jsx
+export default function FollowRequest({ user, count, profile, onClick }) {
   return (
     <div
       className="follow-request"
-      onClick={handleClick}
+      onClick={onClick}
       style={{ cursor: "pointer" }}
     >
       <img src={profile} className="noti-profile" />
