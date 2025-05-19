@@ -26,7 +26,7 @@ export default function StoryViewer({ params }) {
     <div className="story-dark-bg">
       <div className="story-header">
         <img
-          src="/images/noti/instalogo.svg"
+          src="/images/noti/insta_logo.svg"
           alt="Instagram"
           className="instagram-logo"
           style={{ height: "40px" }}
