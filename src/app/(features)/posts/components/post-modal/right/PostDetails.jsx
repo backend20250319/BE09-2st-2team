@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import "./PostDetails.css";
-import FollowButton from "../follow/FollowButton";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { LuSend } from "react-icons/lu";
 import { FaRegComment } from "react-icons/fa6";
@@ -53,7 +52,7 @@ const PostDetails = ({ post }) => {
           {post.comments?.map((comment, index) => (
             <div key={index} className="comment">
               <img
-                src="\images\profile\pasic.png"
+                src={comment.img} // ✅ 각 댓글의 이미지 경로
                 alt="프로필"
                 className="content-avatar"
               />
@@ -118,6 +117,7 @@ const PostDetails = ({ post }) => {
           className="comment-input"
           placeholder="댓글달기..."
         />
+        <button className="send-comment">게시</button>
       </div>
     </div>
   );

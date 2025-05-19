@@ -139,7 +139,6 @@
 
 .heart-icon {
   color: black;
-  font-size: 24px;
   cursor: pointer;
   margin-left: 5;
   transition: transform 0.01s ease, color 0.01s ease;
@@ -170,15 +169,27 @@
 }
 
 .add-comment {
-  padding: 5;
+  padding: 10 5 5 5;
+  display: flex;
+  align-items: center;
+  border-top: 1.5px solid #ddd;
+  margin: 5 0 5 0;
 }
 
 .comment-input {
   border: none;
+  width: 400px;
 }
 
 .comment-input:focus {
   outline: none;
   box-shadow: none;
   border: none;
+}
+
+.send-comment {
+  border: none;
+  background: transparent;
+  color: lightskyblue;
+  font-weight: bold;
 }
