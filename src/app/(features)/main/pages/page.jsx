@@ -9,7 +9,7 @@ import SideBar, {
   SideRecommend,
   SideFooter,
 } from "../components/Side";
-import styles from "../styles/MainPage.module.css";
+import styles from "../styles/mainpage-layout.module.css";
 
 const MainPage = () => {
   return (
