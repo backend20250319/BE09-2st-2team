@@ -39,9 +39,9 @@ export default function NotificationPanel({ isOpen, onClose }) {
         <h2 style={{ marginBottom: "12px", padding: "10px 23px" }}>알림</h2>
 
         <FollowRequest
-          user="one_lastweek"
+          user="AkiYama"
           count={4}
-          profile="/images/search/profile1.png"
+          profile="/images/noti/profile_10.jpg"
           onClick={() => setPanel("followRequest")}
         />
 
@@ -93,14 +93,14 @@ export default function NotificationPanel({ isOpen, onClose }) {
             user1="Goyunjeong"
             message="님이 회원님의 스토리를 좋아합니다."
             profile="/images/search/profile3.png"
-            preview="/images/search/profile6.png"
+            preview="/images/noti/story_6.jpeg"
             time="4주"
           />
           <NotificationItem
             user1="Mr.s Sexyguy"
             message="님이 회원님의 스토리를 좋아합니다."
-            profile="/images/search/profile3.png"
-            preview="/images/search/profile6.png"
+            profile="/images/search/profile5.png"
+            preview="/images/search/profile8.png"
             time="2주"
           />
         </NotificationSection>

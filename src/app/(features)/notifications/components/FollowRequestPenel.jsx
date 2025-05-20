@@ -26,9 +26,9 @@ export default function FollowRequestPanel({ onBack }) {
         <h4 style={{ marginLeft: "90px" }}>팔로우 요청</h4>
       </div>
       <FollowItem
-        user="one_lastweek"
-        profile="/images/search/profile1.png"
-        name="한주전"
+        user="AkiYama"
+        profile="/images/noti/profile_10.jpg"
+        name="아조씨"
       />
       <FollowItem
         user="Last_DanXXX"
@@ -50,19 +50,21 @@ export default function FollowRequestPanel({ onBack }) {
         user="kikwan_seol"
         profile="/images/search/profile5.png"
         recomend="1"
+        btmmessage={"firstV님 외 12명이 팔로우"}
       />
       <FollowItem
         user="Cute_Princess"
         profile="/images/search/profile6.png"
         name=""
         recomend="1"
+        btmmessage={"회원님을 위한 추천"}
       />
       <FollowItem
         user="It's_Me"
         profile="/images/search/profile7.png"
         name="미친존재감"
         recomend="1"
-        btmmessage={"@@@님외 4명이 팔로우 "}
+        btmmessage={"forUUS님 외 4명이 팔로우 "}
       />
       <FollowItem
         user="one_lastweek"
